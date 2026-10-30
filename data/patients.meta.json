@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "base_date": "2026-10-31",
+  "seed": 20261031,
+  "count": 32,
+  "by_condition": {
+    "Diabetes": 6,
+    "Arthritis": 6,
+    "Hypertension": 5,
+    "Asthma": 5,
+    "Cancer": 5,
+    "Obesity": 5
+  },
+  "source": {
+    "file_name": "94303c7b-healthcare_dataset.csv",
+    "usable_rows_after_cleaning": 54080,
+    "note": "원본 CSV는 저장소에 포함하지 않는다. 출처와 이용 조건은 팀이 별도로 확인해 기록할 것."
+  },
+  "privacy": [
+    "실제 환자 정보를 사용하지 않았다. 모든 레코드는 합성(synthetic) 데이터다.",
+    "원본 CSV의 이름/의사/병원/보험/청구액/병실 번호/약물은 사용하지 않았다(이름은 임의 가명).",
+    "CSV에서 가져온 값은 나이, 성별, 혈액형, 질환 분류, 입원 유형, 검사 결과 라벨뿐이다.",
+    "만 19세 미만은 제외했다. 연락처/주민번호/주소/생년월일 필드는 만들지 않았다.",
+    "병동/병실/수술/약물/일정/활력징후/케어 사항은 규칙 기반으로 합성한 값이며 임상 검수를 받지 않았다.",
+    "외부 모델에는 to_llm_view()로 만든 최소 정보 뷰만 전달한다(이름, 병실, 담당자 이름, 절대 날짜 제외)."
+  ],
+  "regenerate": "python3 -I build_patients.py --csv <healthcare_dataset.csv> --out <폴더> --today YYYY-MM-DD"
+}

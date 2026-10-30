@@ -1,0 +1,4 @@
+.env
+data/requests.json
+__pycache__/
+.venv/

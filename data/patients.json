@@ -1,0 +1,3449 @@
+[
+  {
+    "id": "p1",
+    "name": "박정호",
+    "age": 61,
+    "gender": "남",
+    "blood_type": "A+",
+    "ward": "내분비내과 병동",
+    "room": "502호",
+    "bed": "2번 침상",
+    "admitted_at": "2026-10-29",
+    "expected_discharge": "2026-11-04",
+    "admission_type": "긴급 입원",
+    "condition": "Diabetes",
+    "diagnosis": "제2형 당뇨병 (혈당 조절 및 합병증 평가)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "메트포르민",
+        "schedule": "아침·저녁 식후",
+        "route": "경구",
+        "purpose": "혈당 조절"
+      },
+      {
+        "name": "인슐린(속효성)",
+        "schedule": "식전, 간호사 투여",
+        "route": "주사",
+        "purpose": "혈당 조절"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T06:30",
+        "item": "공복 혈당 채혈",
+        "fasting": true,
+        "note": "전날 밤 9시 이후 금식 · 금식 중 혈당약/인슐린 투여는 반드시 간호사에게 확인"
+      },
+      {
+        "datetime": "2026-11-01T09:00",
+        "item": "복부 초음파",
+        "fasting": true,
+        "note": "검사 전 8시간 금식 필요"
+      },
+      {
+        "datetime": "2026-11-01T14:00",
+        "item": "영양 상담",
+        "fasting": false,
+        "note": "식사 후 병실 방문 진행"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.6,
+        "pulse": 78,
+        "bp_sys": 128,
+        "bp_dia": 80,
+        "spo2": 97,
+        "glucose": 158
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.7,
+        "pulse": 76,
+        "bp_sys": 126,
+        "bp_dia": 78,
+        "spo2": 97,
+        "glucose": 142
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.5,
+        "pulse": 74,
+        "bp_sys": 124,
+        "bp_dia": 78,
+        "spo2": 98,
+        "glucose": 171
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.6,
+        "pulse": 75,
+        "bp_sys": 126,
+        "bp_dia": 80,
+        "spo2": 97,
+        "glucose": 149
+      }
+    ],
+    "care_notes": [
+      "혈당 측정 하루 4회 (식전·취침 전)",
+      "저혈당 증상(식은땀·떨림·어지러움) 시 즉시 호출벨",
+      "검사 금식 중 인슐린/혈당약 조정은 의료진 확인 후 진행",
+      "발 관리 및 피부 상처 확인"
+    ],
+    "diet": "당뇨식 (검사 전 금식 예정)",
+    "mobility": "독립 보행",
+    "fall_risk": "낮음",
+    "last_test_result": "Abnormal",
+    "last_test_summary": "최근 검사 결과: 이상 소견 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "문하윤",
+    "attending_physician": "한상민 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "handcrafted",
+      "csv_row": null,
+      "csv_fields_used": []
+    }
+  },
+  {
+    "id": "p2",
+    "name": "이순자",
+    "age": 67,
+    "gender": "여",
+    "blood_type": "B+",
+    "ward": "정형외과 병동",
+    "room": "301호",
+    "bed": "2번 침상",
+    "admitted_at": "2026-10-28",
+    "expected_discharge": "2026-11-06",
+    "admission_type": "예정 입원",
+    "condition": "Arthritis",
+    "diagnosis": "우측 무릎 골관절염 (인공관절 수술 후 회복)",
+    "surgery": {
+      "name": "우측 무릎 인공관절 전치환술",
+      "date": "2026-10-29",
+      "post_op_day": 2
+    },
+    "medications": [
+      {
+        "name": "아세트아미노펜",
+        "schedule": "6시간마다, 통증이 심하면 간호사에게 요청",
+        "route": "경구",
+        "purpose": "통증 조절"
+      },
+      {
+        "name": "항혈전 주사",
+        "schedule": "하루 1회, 간호사 투여",
+        "route": "주사",
+        "purpose": "혈전 예방"
+      },
+      {
+        "name": "예방적 항생제",
+        "schedule": "처방 기간 중 정해진 시간",
+        "route": "주사",
+        "purpose": "수술 후 감염 예방"
+      },
+      {
+        "name": "위장보호제",
+        "schedule": "아침 식전",
+        "route": "경구",
+        "purpose": "위 보호"
+      }
+    ],
+    "allergies": [
+      "라텍스"
+    ],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-10-31T17:00",
+        "item": "상처 소독",
+        "fasting": false,
+        "note": "하루 2회 (오전 10시, 오후 5시)"
+      },
+      {
+        "datetime": "2026-11-01T09:00",
+        "item": "X-ray 촬영 (수술 부위 확인)",
+        "fasting": false,
+        "note": "금식 필요 없음 · 휠체어로 이동"
+      },
+      {
+        "datetime": "2026-11-01T10:00",
+        "item": "상처 소독",
+        "fasting": false,
+        "note": ""
+      },
+      {
+        "datetime": "2026-11-01T14:00",
+        "item": "재활치료(보행 훈련)",
+        "fasting": false,
+        "note": "보조기 사용"
+      },
+      {
+        "datetime": "2026-11-01T17:00",
+        "item": "상처 소독",
+        "fasting": false,
+        "note": ""
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 37.0,
+        "pulse": 82,
+        "bp_sys": 122,
+        "bp_dia": 76,
+        "spo2": 97
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 37.2,
+        "pulse": 84,
+        "bp_sys": 124,
+        "bp_dia": 76,
+        "spo2": 97
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 37.4,
+        "pulse": 88,
+        "bp_sys": 126,
+        "bp_dia": 78,
+        "spo2": 96
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 37.6,
+        "pulse": 90,
+        "bp_sys": 128,
+        "bp_dia": 80,
+        "spo2": 96
+      }
+    ],
+    "care_notes": [
+      "상처 소독 하루 2회",
+      "보행 시 보조 필요 (낙상 주의)",
+      "수술한 다리를 베개로 높이기",
+      "기침·심호흡 운동",
+      "수술 부위 통증·붓기·진물·열 변화는 간호사에게 알리기"
+    ],
+    "diet": "일반식",
+    "mobility": "보행 보조 필요",
+    "fall_risk": "높음",
+    "last_test_result": "Normal",
+    "last_test_summary": "최근 검사 결과: 정상 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [
+      "수술 후 체온 상승 추세 (37.0 → 37.6℃)"
+    ],
+    "assigned_nurse": "박서진",
+    "attending_physician": "임재현 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "handcrafted",
+      "csv_row": null,
+      "csv_fields_used": []
+    }
+  },
+  {
+    "id": "p3",
+    "name": "신서윤",
+    "age": 33,
+    "gender": "여",
+    "blood_type": "A+",
+    "ward": "내분비내과 병동",
+    "room": "505호",
+    "bed": "4번 침상",
+    "admitted_at": "2026-10-30",
+    "expected_discharge": "2026-11-09",
+    "admission_type": "긴급 입원",
+    "condition": "Diabetes",
+    "diagnosis": "제2형 당뇨병 (고혈당 교정)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "메트포르민",
+        "schedule": "아침·저녁 식후",
+        "route": "경구",
+        "purpose": "혈당 조절"
+      },
+      {
+        "name": "인슐린(속효성)",
+        "schedule": "식전, 간호사 투여",
+        "route": "주사",
+        "purpose": "혈당 조절"
+      }
+    ],
+    "allergies": [
+      "조영제"
+    ],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-02T09:00",
+        "item": "복부 초음파",
+        "fasting": true,
+        "note": "검사 전 8시간 금식 필요"
+      },
+      {
+        "datetime": "2026-11-02T10:00",
+        "item": "안저 검사",
+        "fasting": false,
+        "note": "눈 확대 점안 후 몇 시간 눈부심 가능"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.7,
+        "pulse": 77,
+        "bp_sys": 119,
+        "bp_dia": 76,
+        "spo2": 96,
+        "glucose": 128
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.6,
+        "pulse": 75,
+        "bp_sys": 122,
+        "bp_dia": 78,
+        "spo2": 98,
+        "glucose": 155
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.6,
+        "pulse": 88,
+        "bp_sys": 123,
+        "bp_dia": 77,
+        "spo2": 98,
+        "glucose": 122
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.8,
+        "pulse": 71,
+        "bp_sys": 125,
+        "bp_dia": 68,
+        "spo2": 98,
+        "glucose": 171
+      }
+    ],
+    "care_notes": [
+      "혈당 측정 하루 4회 (식전·취침 전)",
+      "저혈당 증상(식은땀·떨림·어지러움) 시 즉시 호출벨",
+      "발 관리 및 피부 상처 확인"
+    ],
+    "diet": "당뇨식",
+    "mobility": "독립 보행",
+    "fall_risk": "낮음",
+    "last_test_result": "Normal",
+    "last_test_summary": "최근 검사 결과: 정상 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "백소영",
+    "attending_physician": "윤서현 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 42542,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p4",
+    "name": "정병철",
+    "age": 45,
+    "gender": "남",
+    "blood_type": "O-",
+    "ward": "내분비내과 병동",
+    "room": "504호",
+    "bed": "4번 침상",
+    "admitted_at": "2026-10-30",
+    "expected_discharge": "2026-11-10",
+    "admission_type": "예정 입원",
+    "condition": "Diabetes",
+    "diagnosis": "제2형 당뇨병 (혈당 조절 및 합병증 평가)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "메트포르민",
+        "schedule": "아침·저녁 식후",
+        "route": "경구",
+        "purpose": "혈당 조절"
+      },
+      {
+        "name": "인슐린(지속형)",
+        "schedule": "취침 전, 간호사 투여",
+        "route": "주사",
+        "purpose": "혈당 조절"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T06:30",
+        "item": "공복 혈당 채혈",
+        "fasting": true,
+        "note": "전날 밤 9시 이후 금식 · 금식 중 혈당약/인슐린은 간호사에게 확인"
+      },
+      {
+        "datetime": "2026-11-02T09:00",
+        "item": "복부 초음파",
+        "fasting": true,
+        "note": "검사 전 8시간 금식 필요"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.7,
+        "pulse": 74,
+        "bp_sys": 118,
+        "bp_dia": 72,
+        "spo2": 98,
+        "glucose": 111
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.4,
+        "pulse": 87,
+        "bp_sys": 117,
+        "bp_dia": 68,
+        "spo2": 99,
+        "glucose": 153
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.7,
+        "pulse": 70,
+        "bp_sys": 122,
+        "bp_dia": 78,
+        "spo2": 96,
+        "glucose": 129
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.6,
+        "pulse": 69,
+        "bp_sys": 123,
+        "bp_dia": 72,
+        "spo2": 96,
+        "glucose": 142
+      }
+    ],
+    "care_notes": [
+      "혈당 측정 하루 4회 (식전·취침 전)",
+      "저혈당 증상(식은땀·떨림·어지러움) 시 즉시 호출벨",
+      "발 관리 및 피부 상처 확인"
+    ],
+    "diet": "당뇨식",
+    "mobility": "독립 보행",
+    "fall_risk": "낮음",
+    "last_test_result": "Abnormal",
+    "last_test_summary": "최근 검사 결과: 이상 소견 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "문하윤",
+    "attending_physician": "한상민 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 12995,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p5",
+    "name": "임정희",
+    "age": 55,
+    "gender": "여",
+    "blood_type": "A-",
+    "ward": "내분비내과 병동",
+    "room": "507호",
+    "bed": "1번 침상",
+    "admitted_at": "2026-10-27",
+    "expected_discharge": "2026-11-07",
+    "admission_type": "긴급 입원",
+    "condition": "Diabetes",
+    "diagnosis": "제2형 당뇨병 (고혈당 교정)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "글리메피리드",
+        "schedule": "아침 식전",
+        "route": "경구",
+        "purpose": "혈당 조절"
+      },
+      {
+        "name": "메트포르민",
+        "schedule": "아침·저녁 식후",
+        "route": "경구",
+        "purpose": "혈당 조절"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T06:30",
+        "item": "공복 혈당 채혈",
+        "fasting": true,
+        "note": "전날 밤 9시 이후 금식 · 금식 중 혈당약/인슐린은 간호사에게 확인"
+      },
+      {
+        "datetime": "2026-11-01T14:00",
+        "item": "영양 상담",
+        "fasting": false,
+        "note": "식사 후 진행"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.7,
+        "pulse": 78,
+        "bp_sys": 119,
+        "bp_dia": 72,
+        "spo2": 99,
+        "glucose": 155
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.5,
+        "pulse": 85,
+        "bp_sys": 123,
+        "bp_dia": 71,
+        "spo2": 97,
+        "glucose": 122
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.9,
+        "pulse": 88,
+        "bp_sys": 113,
+        "bp_dia": 78,
+        "spo2": 98,
+        "glucose": 64
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.7,
+        "pulse": 67,
+        "bp_sys": 121,
+        "bp_dia": 80,
+        "spo2": 98,
+        "glucose": 182
+      }
+    ],
+    "care_notes": [
+      "혈당 측정 하루 4회 (식전·취침 전)",
+      "저혈당 증상(식은땀·떨림·어지러움) 시 즉시 호출벨",
+      "발 관리 및 피부 상처 확인"
+    ],
+    "diet": "당뇨식",
+    "mobility": "독립 보행",
+    "fall_risk": "낮음",
+    "last_test_result": "Inconclusive",
+    "last_test_summary": "최근 검사 결과: 판정 보류 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [
+      "저혈당 범위 수치 기록 (64 mg/dL)"
+    ],
+    "assigned_nurse": "백소영",
+    "attending_physician": "윤서현 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 16742,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p6",
+    "name": "강지훈",
+    "age": 73,
+    "gender": "남",
+    "blood_type": "A+",
+    "ward": "내분비내과 병동",
+    "room": "502호",
+    "bed": "1번 침상",
+    "admitted_at": "2026-10-28",
+    "expected_discharge": "2026-11-10",
+    "admission_type": "응급실 경유 입원",
+    "condition": "Diabetes",
+    "diagnosis": "제2형 당뇨병 (혈당 조절 및 합병증 평가)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "글리메피리드",
+        "schedule": "아침 식전",
+        "route": "경구",
+        "purpose": "혈당 조절"
+      },
+      {
+        "name": "인슐린(속효성)",
+        "schedule": "식전, 간호사 투여",
+        "route": "주사",
+        "purpose": "혈당 조절"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T08:00",
+        "item": "당화혈색소(HbA1c) 검사",
+        "fasting": false,
+        "note": "채혈 · 금식 불필요"
+      },
+      {
+        "datetime": "2026-11-02T10:00",
+        "item": "안저 검사",
+        "fasting": false,
+        "note": "눈 확대 점안 후 몇 시간 눈부심 가능"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.4,
+        "pulse": 81,
+        "bp_sys": 120,
+        "bp_dia": 69,
+        "spo2": 98,
+        "glucose": 154
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.4,
+        "pulse": 73,
+        "bp_sys": 112,
+        "bp_dia": 80,
+        "spo2": 97,
+        "glucose": 110
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.4,
+        "pulse": 84,
+        "bp_sys": 117,
+        "bp_dia": 70,
+        "spo2": 97,
+        "glucose": 165
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.8,
+        "pulse": 70,
+        "bp_sys": 126,
+        "bp_dia": 80,
+        "spo2": 99,
+        "glucose": 184
+      }
+    ],
+    "care_notes": [
+      "혈당 측정 하루 4회 (식전·취침 전)",
+      "저혈당 증상(식은땀·떨림·어지러움) 시 즉시 호출벨",
+      "발 관리 및 피부 상처 확인"
+    ],
+    "diet": "당뇨식",
+    "mobility": "독립 보행",
+    "fall_risk": "중간",
+    "last_test_result": "Abnormal",
+    "last_test_summary": "최근 검사 결과: 이상 소견 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "문하윤",
+    "attending_physician": "한상민 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 42362,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p7",
+    "name": "강시우",
+    "age": 81,
+    "gender": "남",
+    "blood_type": "B+",
+    "ward": "내분비내과 병동",
+    "room": "509호",
+    "bed": "1번 침상",
+    "admitted_at": "2026-10-27",
+    "expected_discharge": "2026-11-05",
+    "admission_type": "긴급 입원",
+    "condition": "Diabetes",
+    "diagnosis": "제2형 당뇨병 (고혈당 교정)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "메트포르민",
+        "schedule": "아침·저녁 식후",
+        "route": "경구",
+        "purpose": "혈당 조절"
+      },
+      {
+        "name": "글리메피리드",
+        "schedule": "아침 식전",
+        "route": "경구",
+        "purpose": "혈당 조절"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T06:30",
+        "item": "공복 혈당 채혈",
+        "fasting": true,
+        "note": "전날 밤 9시 이후 금식 · 금식 중 혈당약/인슐린은 간호사에게 확인"
+      },
+      {
+        "datetime": "2026-11-02T09:00",
+        "item": "복부 초음파",
+        "fasting": true,
+        "note": "검사 전 8시간 금식 필요"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.5,
+        "pulse": 79,
+        "bp_sys": 123,
+        "bp_dia": 72,
+        "spo2": 99,
+        "glucose": 162
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.8,
+        "pulse": 66,
+        "bp_sys": 114,
+        "bp_dia": 80,
+        "spo2": 97,
+        "glucose": 128
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.5,
+        "pulse": 80,
+        "bp_sys": 116,
+        "bp_dia": 79,
+        "spo2": 99,
+        "glucose": 115
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.7,
+        "pulse": 67,
+        "bp_sys": 122,
+        "bp_dia": 71,
+        "spo2": 96,
+        "glucose": 171
+      }
+    ],
+    "care_notes": [
+      "혈당 측정 하루 4회 (식전·취침 전)",
+      "저혈당 증상(식은땀·떨림·어지러움) 시 즉시 호출벨",
+      "발 관리 및 피부 상처 확인"
+    ],
+    "diet": "당뇨식",
+    "mobility": "보행 보조 필요",
+    "fall_risk": "높음",
+    "last_test_result": "Normal",
+    "last_test_summary": "최근 검사 결과: 정상 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "백소영",
+    "attending_physician": "윤서현 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 43918,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p8",
+    "name": "최성진",
+    "age": 23,
+    "gender": "남",
+    "blood_type": "A-",
+    "ward": "순환기내과 병동",
+    "room": "608호",
+    "bed": "2번 침상",
+    "admitted_at": "2026-10-30",
+    "expected_discharge": "2026-11-03",
+    "admission_type": "긴급 입원",
+    "condition": "Hypertension",
+    "diagnosis": "고혈압 (혈압 조절 및 약물 조정)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "로사르탄",
+        "schedule": "아침 식후",
+        "route": "경구",
+        "purpose": "혈압 조절"
+      },
+      {
+        "name": "하이드로클로로티아지드",
+        "schedule": "아침 식후",
+        "route": "경구",
+        "purpose": "혈압 조절(소변량 증가 가능)"
+      }
+    ],
+    "allergies": [
+      "페니실린"
+    ],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T08:00",
+        "item": "소변 검사",
+        "fasting": false,
+        "note": "아침 첫 소변"
+      },
+      {
+        "datetime": "2026-11-01T09:00",
+        "item": "24시간 활동혈압 측정",
+        "fasting": false,
+        "note": "장비를 착용하고 일상 활동"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.7,
+        "pulse": 80,
+        "bp_sys": 132,
+        "bp_dia": 90,
+        "spo2": 99
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.7,
+        "pulse": 71,
+        "bp_sys": 143,
+        "bp_dia": 84,
+        "spo2": 97
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.8,
+        "pulse": 66,
+        "bp_sys": 134,
+        "bp_dia": 87,
+        "spo2": 97
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.9,
+        "pulse": 86,
+        "bp_sys": 158,
+        "bp_dia": 96,
+        "spo2": 99
+      }
+    ],
+    "care_notes": [
+      "혈압 측정 하루 3회",
+      "저염식 안내",
+      "자리에서 일어날 때 천천히 (어지러움 주의)"
+    ],
+    "diet": "저염식",
+    "mobility": "독립 보행",
+    "fall_risk": "낮음",
+    "last_test_result": "Inconclusive",
+    "last_test_summary": "최근 검사 결과: 판정 보류 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [
+      "혈압 높은 편 (158/96)"
+    ],
+    "assigned_nurse": "이지은",
+    "attending_physician": "강태준 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 19929,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p9",
+    "name": "신수빈",
+    "age": 42,
+    "gender": "여",
+    "blood_type": "O-",
+    "ward": "순환기내과 병동",
+    "room": "606호",
+    "bed": "4번 침상",
+    "admitted_at": "2026-10-29",
+    "expected_discharge": "2026-11-09",
+    "admission_type": "긴급 입원",
+    "condition": "Hypertension",
+    "diagnosis": "고혈압 (혈압 조절 및 약물 조정)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "로사르탄",
+        "schedule": "아침 식후",
+        "route": "경구",
+        "purpose": "혈압 조절"
+      },
+      {
+        "name": "하이드로클로로티아지드",
+        "schedule": "아침 식후",
+        "route": "경구",
+        "purpose": "혈압 조절(소변량 증가 가능)"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T11:00",
+        "item": "심전도 검사",
+        "fasting": false,
+        "note": "금식 불필요"
+      },
+      {
+        "datetime": "2026-11-02T10:00",
+        "item": "심장 초음파",
+        "fasting": false,
+        "note": "금식 불필요"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.9,
+        "pulse": 67,
+        "bp_sys": 149,
+        "bp_dia": 93,
+        "spo2": 96
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.6,
+        "pulse": 74,
+        "bp_sys": 144,
+        "bp_dia": 91,
+        "spo2": 99
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.8,
+        "pulse": 75,
+        "bp_sys": 136,
+        "bp_dia": 85,
+        "spo2": 99
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.6,
+        "pulse": 86,
+        "bp_sys": 140,
+        "bp_dia": 83,
+        "spo2": 99
+      }
+    ],
+    "care_notes": [
+      "혈압 측정 하루 3회",
+      "저염식 안내",
+      "자리에서 일어날 때 천천히 (어지러움 주의)"
+    ],
+    "diet": "저염식",
+    "mobility": "독립 보행",
+    "fall_risk": "낮음",
+    "last_test_result": "Normal",
+    "last_test_summary": "최근 검사 결과: 정상 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "정다은",
+    "attending_physician": "오지민 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 19058,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p10",
+    "name": "조영호",
+    "age": 64,
+    "gender": "남",
+    "blood_type": "O-",
+    "ward": "순환기내과 병동",
+    "room": "607호",
+    "bed": "1번 침상",
+    "admitted_at": "2026-10-27",
+    "expected_discharge": "2026-11-10",
+    "admission_type": "긴급 입원",
+    "condition": "Hypertension",
+    "diagnosis": "고혈압 (혈압 조절 및 약물 조정)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "암로디핀",
+        "schedule": "아침 식후",
+        "route": "경구",
+        "purpose": "혈압 조절"
+      },
+      {
+        "name": "하이드로클로로티아지드",
+        "schedule": "아침 식후",
+        "route": "경구",
+        "purpose": "혈압 조절(소변량 증가 가능)"
+      }
+    ],
+    "allergies": [
+      "페니실린"
+    ],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T08:00",
+        "item": "소변 검사",
+        "fasting": false,
+        "note": "아침 첫 소변"
+      },
+      {
+        "datetime": "2026-11-02T10:00",
+        "item": "심장 초음파",
+        "fasting": false,
+        "note": "금식 불필요"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.7,
+        "pulse": 82,
+        "bp_sys": 133,
+        "bp_dia": 86,
+        "spo2": 96
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.9,
+        "pulse": 69,
+        "bp_sys": 136,
+        "bp_dia": 92,
+        "spo2": 99
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.9,
+        "pulse": 81,
+        "bp_sys": 145,
+        "bp_dia": 86,
+        "spo2": 98
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.4,
+        "pulse": 82,
+        "bp_sys": 148,
+        "bp_dia": 82,
+        "spo2": 99
+      }
+    ],
+    "care_notes": [
+      "혈압 측정 하루 3회",
+      "저염식 안내",
+      "자리에서 일어날 때 천천히 (어지러움 주의)"
+    ],
+    "diet": "저염식",
+    "mobility": "독립 보행",
+    "fall_risk": "중간",
+    "last_test_result": "Normal",
+    "last_test_summary": "최근 검사 결과: 정상 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "이지은",
+    "attending_physician": "강태준 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 23314,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p11",
+    "name": "박옥자",
+    "age": 72,
+    "gender": "여",
+    "blood_type": "O-",
+    "ward": "순환기내과 병동",
+    "room": "610호",
+    "bed": "3번 침상",
+    "admitted_at": "2026-10-29",
+    "expected_discharge": "2026-11-03",
+    "admission_type": "응급실 경유 입원",
+    "condition": "Hypertension",
+    "diagnosis": "고혈압 (혈압 조절 및 약물 조정)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "암로디핀",
+        "schedule": "아침 식후",
+        "route": "경구",
+        "purpose": "혈압 조절"
+      },
+      {
+        "name": "하이드로클로로티아지드",
+        "schedule": "아침 식후",
+        "route": "경구",
+        "purpose": "혈압 조절(소변량 증가 가능)"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T08:00",
+        "item": "소변 검사",
+        "fasting": false,
+        "note": "아침 첫 소변"
+      },
+      {
+        "datetime": "2026-11-01T11:00",
+        "item": "심전도 검사",
+        "fasting": false,
+        "note": "금식 불필요"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.5,
+        "pulse": 75,
+        "bp_sys": 147,
+        "bp_dia": 93,
+        "spo2": 97
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.8,
+        "pulse": 76,
+        "bp_sys": 139,
+        "bp_dia": 90,
+        "spo2": 97
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.5,
+        "pulse": 74,
+        "bp_sys": 134,
+        "bp_dia": 92,
+        "spo2": 99
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.8,
+        "pulse": 83,
+        "bp_sys": 142,
+        "bp_dia": 92,
+        "spo2": 96
+      }
+    ],
+    "care_notes": [
+      "혈압 측정 하루 3회",
+      "저염식 안내",
+      "자리에서 일어날 때 천천히 (어지러움 주의)"
+    ],
+    "diet": "저염식",
+    "mobility": "독립 보행",
+    "fall_risk": "중간",
+    "last_test_result": "Normal",
+    "last_test_summary": "최근 검사 결과: 정상 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "정다은",
+    "attending_physician": "오지민 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 40405,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p12",
+    "name": "조병철",
+    "age": 82,
+    "gender": "남",
+    "blood_type": "AB-",
+    "ward": "순환기내과 병동",
+    "room": "607호",
+    "bed": "2번 침상",
+    "admitted_at": "2026-10-27",
+    "expected_discharge": "2026-11-06",
+    "admission_type": "예정 입원",
+    "condition": "Hypertension",
+    "diagnosis": "고혈압 (혈압 조절 및 약물 조정)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "암로디핀",
+        "schedule": "아침 식후",
+        "route": "경구",
+        "purpose": "혈압 조절"
+      },
+      {
+        "name": "로사르탄",
+        "schedule": "아침 식후",
+        "route": "경구",
+        "purpose": "혈압 조절"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T09:00",
+        "item": "24시간 활동혈압 측정",
+        "fasting": false,
+        "note": "장비를 착용하고 일상 활동"
+      },
+      {
+        "datetime": "2026-11-02T10:00",
+        "item": "심장 초음파",
+        "fasting": false,
+        "note": "금식 불필요"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.4,
+        "pulse": 74,
+        "bp_sys": 142,
+        "bp_dia": 93,
+        "spo2": 96
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.7,
+        "pulse": 77,
+        "bp_sys": 147,
+        "bp_dia": 82,
+        "spo2": 98
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.7,
+        "pulse": 76,
+        "bp_sys": 146,
+        "bp_dia": 86,
+        "spo2": 99
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.6,
+        "pulse": 88,
+        "bp_sys": 139,
+        "bp_dia": 90,
+        "spo2": 96
+      }
+    ],
+    "care_notes": [
+      "혈압 측정 하루 3회",
+      "저염식 안내",
+      "자리에서 일어날 때 천천히 (어지러움 주의)"
+    ],
+    "diet": "저염식",
+    "mobility": "독립 보행",
+    "fall_risk": "높음",
+    "last_test_result": "Abnormal",
+    "last_test_summary": "최근 검사 결과: 이상 소견 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "이지은",
+    "attending_physician": "강태준 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 31146,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p13",
+    "name": "신혜진",
+    "age": 22,
+    "gender": "여",
+    "blood_type": "B-",
+    "ward": "호흡기내과 병동",
+    "room": "704호",
+    "bed": "2번 침상",
+    "admitted_at": "2026-10-26",
+    "expected_discharge": "2026-11-04",
+    "admission_type": "응급실 경유 입원",
+    "condition": "Asthma",
+    "diagnosis": "기관지 천식 (급성 악화 후 관리)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "속효성 흡입기",
+        "schedule": "필요 시",
+        "route": "흡입",
+        "purpose": "호흡 불편 완화"
+      },
+      {
+        "name": "흡입 스테로이드",
+        "schedule": "하루 2회, 사용 후 입 헹굼",
+        "route": "흡입",
+        "purpose": "염증 조절"
+      },
+      {
+        "name": "경구 스테로이드(단기)",
+        "schedule": "아침 식후",
+        "route": "경구",
+        "purpose": "급성 악화 치료"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T13:00",
+        "item": "흉부 X-ray",
+        "fasting": false,
+        "note": "금식 불필요"
+      },
+      {
+        "datetime": "2026-11-02T09:30",
+        "item": "알레르기 검사",
+        "fasting": false,
+        "note": "피부 반응 검사 · 약 30분 소요"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.5,
+        "pulse": 76,
+        "bp_sys": 118,
+        "bp_dia": 79,
+        "spo2": 97
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.6,
+        "pulse": 85,
+        "bp_sys": 127,
+        "bp_dia": 77,
+        "spo2": 98
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.5,
+        "pulse": 88,
+        "bp_sys": 122,
+        "bp_dia": 77,
+        "spo2": 95
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.5,
+        "pulse": 73,
+        "bp_sys": 114,
+        "bp_dia": 75,
+        "spo2": 95
+      }
+    ],
+    "care_notes": [
+      "산소포화도 하루 3회 확인",
+      "호흡이 힘들면 즉시 호출벨",
+      "흡입기 사용법 교육",
+      "먼지·찬 공기 노출 주의"
+    ],
+    "diet": "일반식",
+    "mobility": "독립 보행",
+    "fall_risk": "낮음",
+    "last_test_result": "Normal",
+    "last_test_summary": "최근 검사 결과: 정상 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "장하늘",
+    "attending_physician": "신유나 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 45027,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p14",
+    "name": "조민기",
+    "age": 45,
+    "gender": "남",
+    "blood_type": "A+",
+    "ward": "호흡기내과 병동",
+    "room": "708호",
+    "bed": "2번 침상",
+    "admitted_at": "2026-10-31",
+    "expected_discharge": "2026-11-06",
+    "admission_type": "응급실 경유 입원",
+    "condition": "Asthma",
+    "diagnosis": "기관지 천식 (급성 악화 후 관리)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "속효성 흡입기",
+        "schedule": "필요 시",
+        "route": "흡입",
+        "purpose": "호흡 불편 완화"
+      },
+      {
+        "name": "흡입 스테로이드",
+        "schedule": "하루 2회, 사용 후 입 헹굼",
+        "route": "흡입",
+        "purpose": "염증 조절"
+      },
+      {
+        "name": "경구 스테로이드(단기)",
+        "schedule": "아침 식후",
+        "route": "경구",
+        "purpose": "급성 악화 치료"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T13:00",
+        "item": "흉부 X-ray",
+        "fasting": false,
+        "note": "금식 불필요"
+      },
+      {
+        "datetime": "2026-11-02T09:30",
+        "item": "알레르기 검사",
+        "fasting": false,
+        "note": "피부 반응 검사 · 약 30분 소요"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.4,
+        "pulse": 76,
+        "bp_sys": 122,
+        "bp_dia": 75,
+        "spo2": 93
+      }
+    ],
+    "care_notes": [
+      "산소포화도 하루 3회 확인",
+      "호흡이 힘들면 즉시 호출벨",
+      "흡입기 사용법 교육",
+      "먼지·찬 공기 노출 주의"
+    ],
+    "diet": "일반식",
+    "mobility": "독립 보행",
+    "fall_risk": "낮음",
+    "last_test_result": "Inconclusive",
+    "last_test_summary": "최근 검사 결과: 판정 보류 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [
+      "산소포화도 낮은 편 (93%)"
+    ],
+    "assigned_nurse": "최예린",
+    "attending_physician": "조현석 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 13208,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p15",
+    "name": "정나래",
+    "age": 55,
+    "gender": "여",
+    "blood_type": "B+",
+    "ward": "호흡기내과 병동",
+    "room": "708호",
+    "bed": "1번 침상",
+    "admitted_at": "2026-10-29",
+    "expected_discharge": "2026-11-10",
+    "admission_type": "예정 입원",
+    "condition": "Asthma",
+    "diagnosis": "기관지 천식 (급성 악화 후 관리)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "속효성 흡입기",
+        "schedule": "필요 시",
+        "route": "흡입",
+        "purpose": "호흡 불편 완화"
+      },
+      {
+        "name": "흡입 스테로이드",
+        "schedule": "하루 2회, 사용 후 입 헹굼",
+        "route": "흡입",
+        "purpose": "염증 조절"
+      },
+      {
+        "name": "경구 스테로이드(단기)",
+        "schedule": "아침 식후",
+        "route": "경구",
+        "purpose": "급성 악화 치료"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T13:00",
+        "item": "흉부 X-ray",
+        "fasting": false,
+        "note": "금식 불필요"
+      },
+      {
+        "datetime": "2026-11-02T09:30",
+        "item": "알레르기 검사",
+        "fasting": false,
+        "note": "피부 반응 검사 · 약 30분 소요"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.7,
+        "pulse": 79,
+        "bp_sys": 115,
+        "bp_dia": 78,
+        "spo2": 97
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.8,
+        "pulse": 83,
+        "bp_sys": 127,
+        "bp_dia": 73,
+        "spo2": 97
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.8,
+        "pulse": 67,
+        "bp_sys": 115,
+        "bp_dia": 76,
+        "spo2": 94
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.7,
+        "pulse": 71,
+        "bp_sys": 125,
+        "bp_dia": 71,
+        "spo2": 94
+      }
+    ],
+    "care_notes": [
+      "산소포화도 하루 3회 확인",
+      "호흡이 힘들면 즉시 호출벨",
+      "흡입기 사용법 교육",
+      "먼지·찬 공기 노출 주의"
+    ],
+    "diet": "일반식",
+    "mobility": "독립 보행",
+    "fall_risk": "낮음",
+    "last_test_result": "Normal",
+    "last_test_summary": "최근 검사 결과: 정상 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "장하늘",
+    "attending_physician": "신유나 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 24855,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p16",
+    "name": "서보라",
+    "age": 70,
+    "gender": "여",
+    "blood_type": "B-",
+    "ward": "호흡기내과 병동",
+    "room": "709호",
+    "bed": "4번 침상",
+    "admitted_at": "2026-10-27",
+    "expected_discharge": "2026-11-10",
+    "admission_type": "예정 입원",
+    "condition": "Asthma",
+    "diagnosis": "기관지 천식 (급성 악화 후 관리)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "속효성 흡입기",
+        "schedule": "필요 시",
+        "route": "흡입",
+        "purpose": "호흡 불편 완화"
+      },
+      {
+        "name": "흡입 스테로이드",
+        "schedule": "하루 2회, 사용 후 입 헹굼",
+        "route": "흡입",
+        "purpose": "염증 조절"
+      },
+      {
+        "name": "경구 스테로이드(단기)",
+        "schedule": "아침 식후",
+        "route": "경구",
+        "purpose": "급성 악화 치료"
+      }
+    ],
+    "allergies": [
+      "라텍스"
+    ],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T13:00",
+        "item": "흉부 X-ray",
+        "fasting": false,
+        "note": "금식 불필요"
+      },
+      {
+        "datetime": "2026-11-02T09:30",
+        "item": "알레르기 검사",
+        "fasting": false,
+        "note": "피부 반응 검사 · 약 30분 소요"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.6,
+        "pulse": 84,
+        "bp_sys": 125,
+        "bp_dia": 79,
+        "spo2": 97
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.6,
+        "pulse": 86,
+        "bp_sys": 126,
+        "bp_dia": 72,
+        "spo2": 98
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.4,
+        "pulse": 73,
+        "bp_sys": 118,
+        "bp_dia": 73,
+        "spo2": 95
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.6,
+        "pulse": 72,
+        "bp_sys": 127,
+        "bp_dia": 78,
+        "spo2": 97
+      }
+    ],
+    "care_notes": [
+      "산소포화도 하루 3회 확인",
+      "호흡이 힘들면 즉시 호출벨",
+      "흡입기 사용법 교육",
+      "먼지·찬 공기 노출 주의"
+    ],
+    "diet": "일반식",
+    "mobility": "독립 보행",
+    "fall_risk": "중간",
+    "last_test_result": "Abnormal",
+    "last_test_summary": "최근 검사 결과: 이상 소견 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "최예린",
+    "attending_physician": "조현석 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 37162,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p17",
+    "name": "신재민",
+    "age": 78,
+    "gender": "남",
+    "blood_type": "AB+",
+    "ward": "호흡기내과 병동",
+    "room": "703호",
+    "bed": "1번 침상",
+    "admitted_at": "2026-10-27",
+    "expected_discharge": "2026-11-04",
+    "admission_type": "응급실 경유 입원",
+    "condition": "Asthma",
+    "diagnosis": "기관지 천식 (급성 악화 후 관리)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "속효성 흡입기",
+        "schedule": "필요 시",
+        "route": "흡입",
+        "purpose": "호흡 불편 완화"
+      },
+      {
+        "name": "흡입 스테로이드",
+        "schedule": "하루 2회, 사용 후 입 헹굼",
+        "route": "흡입",
+        "purpose": "염증 조절"
+      },
+      {
+        "name": "경구 스테로이드(단기)",
+        "schedule": "아침 식후",
+        "route": "경구",
+        "purpose": "급성 악화 치료"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T10:00",
+        "item": "폐기능 검사",
+        "fasting": false,
+        "note": "검사 전 흡입기 사용 시점은 간호사 안내"
+      },
+      {
+        "datetime": "2026-11-02T09:30",
+        "item": "알레르기 검사",
+        "fasting": false,
+        "note": "피부 반응 검사 · 약 30분 소요"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.6,
+        "pulse": 79,
+        "bp_sys": 113,
+        "bp_dia": 80,
+        "spo2": 96
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.6,
+        "pulse": 86,
+        "bp_sys": 118,
+        "bp_dia": 72,
+        "spo2": 96
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.7,
+        "pulse": 72,
+        "bp_sys": 126,
+        "bp_dia": 78,
+        "spo2": 98
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.5,
+        "pulse": 79,
+        "bp_sys": 113,
+        "bp_dia": 77,
+        "spo2": 98
+      }
+    ],
+    "care_notes": [
+      "산소포화도 하루 3회 확인",
+      "호흡이 힘들면 즉시 호출벨",
+      "흡입기 사용법 교육",
+      "먼지·찬 공기 노출 주의"
+    ],
+    "diet": "일반식",
+    "mobility": "보행 보조 필요",
+    "fall_risk": "높음",
+    "last_test_result": "Abnormal",
+    "last_test_summary": "최근 검사 결과: 이상 소견 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "장하늘",
+    "attending_physician": "신유나 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 18363,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p18",
+    "name": "윤민기",
+    "age": 34,
+    "gender": "남",
+    "blood_type": "B-",
+    "ward": "정형외과 병동",
+    "room": "309호",
+    "bed": "2번 침상",
+    "admitted_at": "2026-10-30",
+    "expected_discharge": "2026-11-08",
+    "admission_type": "응급실 경유 입원",
+    "condition": "Arthritis",
+    "diagnosis": "골관절염 (통증 조절 및 재활)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "아세트아미노펜",
+        "schedule": "6시간마다",
+        "route": "경구",
+        "purpose": "통증 조절"
+      },
+      {
+        "name": "소염진통제",
+        "schedule": "아침·저녁 식후",
+        "route": "경구",
+        "purpose": "염증·통증 조절"
+      },
+      {
+        "name": "위장보호제",
+        "schedule": "식전",
+        "route": "경구",
+        "purpose": "위 보호"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T08:30",
+        "item": "혈액 염증 수치 검사",
+        "fasting": false,
+        "note": "금식 불필요"
+      },
+      {
+        "datetime": "2026-11-01T10:00",
+        "item": "물리치료",
+        "fasting": false,
+        "note": "편한 복장"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.5,
+        "pulse": 80,
+        "bp_sys": 126,
+        "bp_dia": 79,
+        "spo2": 99
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.5,
+        "pulse": 86,
+        "bp_sys": 121,
+        "bp_dia": 75,
+        "spo2": 96
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.8,
+        "pulse": 84,
+        "bp_sys": 123,
+        "bp_dia": 76,
+        "spo2": 98
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.9,
+        "pulse": 66,
+        "bp_sys": 119,
+        "bp_dia": 77,
+        "spo2": 98
+      }
+    ],
+    "care_notes": [
+      "관절 보호 및 무리한 동작 피하기",
+      "낙상 주의",
+      "온찜질 (간호사 안내에 따라)"
+    ],
+    "diet": "일반식",
+    "mobility": "독립 보행",
+    "fall_risk": "낮음",
+    "last_test_result": "Abnormal",
+    "last_test_summary": "최근 검사 결과: 이상 소견 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "박서진",
+    "attending_physician": "임재현 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 18265,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p19",
+    "name": "오옥자",
+    "age": 44,
+    "gender": "여",
+    "blood_type": "O-",
+    "ward": "정형외과 병동",
+    "room": "301호",
+    "bed": "4번 침상",
+    "admitted_at": "2026-10-30",
+    "expected_discharge": "2026-11-10",
+    "admission_type": "응급실 경유 입원",
+    "condition": "Arthritis",
+    "diagnosis": "류마티스 관절염 (악화기 치료)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "아세트아미노펜",
+        "schedule": "6시간마다",
+        "route": "경구",
+        "purpose": "통증 조절"
+      },
+      {
+        "name": "소염진통제",
+        "schedule": "아침·저녁 식후",
+        "route": "경구",
+        "purpose": "염증·통증 조절"
+      },
+      {
+        "name": "위장보호제",
+        "schedule": "식전",
+        "route": "경구",
+        "purpose": "위 보호"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T08:30",
+        "item": "혈액 염증 수치 검사",
+        "fasting": false,
+        "note": "금식 불필요"
+      },
+      {
+        "datetime": "2026-11-01T10:00",
+        "item": "물리치료",
+        "fasting": false,
+        "note": "편한 복장"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.6,
+        "pulse": 69,
+        "bp_sys": 116,
+        "bp_dia": 76,
+        "spo2": 97
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.6,
+        "pulse": 71,
+        "bp_sys": 124,
+        "bp_dia": 75,
+        "spo2": 99
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.4,
+        "pulse": 84,
+        "bp_sys": 118,
+        "bp_dia": 68,
+        "spo2": 99
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.5,
+        "pulse": 74,
+        "bp_sys": 128,
+        "bp_dia": 80,
+        "spo2": 98
+      }
+    ],
+    "care_notes": [
+      "관절 보호 및 무리한 동작 피하기",
+      "낙상 주의",
+      "온찜질 (간호사 안내에 따라)"
+    ],
+    "diet": "일반식",
+    "mobility": "독립 보행",
+    "fall_risk": "낮음",
+    "last_test_result": "Inconclusive",
+    "last_test_summary": "최근 검사 결과: 판정 보류 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "김나연",
+    "attending_physician": "송미래 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 42264,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p20",
+    "name": "이재민",
+    "age": 55,
+    "gender": "남",
+    "blood_type": "AB-",
+    "ward": "정형외과 병동",
+    "room": "310호",
+    "bed": "3번 침상",
+    "admitted_at": "2026-10-28",
+    "expected_discharge": "2026-11-10",
+    "admission_type": "예정 입원",
+    "condition": "Arthritis",
+    "diagnosis": "우측 무릎 골관절염 (인공관절 수술 후 회복)",
+    "surgery": {
+      "name": "우측 무릎 인공관절 전치환술",
+      "date": "2026-10-30",
+      "post_op_day": 1
+    },
+    "medications": [
+      {
+        "name": "아세트아미노펜",
+        "schedule": "6시간마다, 통증이 심하면 간호사에게 요청",
+        "route": "경구",
+        "purpose": "통증 조절"
+      },
+      {
+        "name": "항혈전 주사",
+        "schedule": "하루 1회, 간호사 투여",
+        "route": "주사",
+        "purpose": "혈전 예방"
+      },
+      {
+        "name": "예방적 항생제",
+        "schedule": "처방 기간 중 정해진 시간",
+        "route": "주사",
+        "purpose": "수술 후 감염 예방"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-10-31T17:00",
+        "item": "상처 소독",
+        "fasting": false,
+        "note": "하루 2회 (오전 10시, 오후 5시)"
+      },
+      {
+        "datetime": "2026-11-01T10:00",
+        "item": "상처 소독",
+        "fasting": false,
+        "note": ""
+      },
+      {
+        "datetime": "2026-11-01T14:00",
+        "item": "재활치료(보행 훈련)",
+        "fasting": false,
+        "note": "보조기 사용"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.7,
+        "pulse": 75,
+        "bp_sys": 128,
+        "bp_dia": 77,
+        "spo2": 98
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.8,
+        "pulse": 76,
+        "bp_sys": 115,
+        "bp_dia": 73,
+        "spo2": 97
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 37.0,
+        "pulse": 79,
+        "bp_sys": 126,
+        "bp_dia": 75,
+        "spo2": 98
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 37.0,
+        "pulse": 74,
+        "bp_sys": 123,
+        "bp_dia": 77,
+        "spo2": 98
+      }
+    ],
+    "care_notes": [
+      "상처 소독 하루 2회",
+      "보행 시 보조 필요 (낙상 주의)",
+      "수술한 다리를 베개로 높이기",
+      "기침·심호흡 운동",
+      "수술 부위 통증·붓기·진물·열 변화는 간호사에게 알리기"
+    ],
+    "diet": "일반식",
+    "mobility": "보행 보조 필요",
+    "fall_risk": "중간",
+    "last_test_result": "Normal",
+    "last_test_summary": "최근 검사 결과: 정상 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "박서진",
+    "attending_physician": "임재현 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 35079,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p21",
+    "name": "박경수",
+    "age": 71,
+    "gender": "남",
+    "blood_type": "B+",
+    "ward": "정형외과 병동",
+    "room": "301호",
+    "bed": "1번 침상",
+    "admitted_at": "2026-10-26",
+    "expected_discharge": "2026-11-10",
+    "admission_type": "응급실 경유 입원",
+    "condition": "Arthritis",
+    "diagnosis": "우측 고관절 골관절염 (인공관절 수술 후 회복)",
+    "surgery": {
+      "name": "우측 고관절 인공관절 치환술",
+      "date": "2026-10-28",
+      "post_op_day": 3
+    },
+    "medications": [
+      {
+        "name": "아세트아미노펜",
+        "schedule": "6시간마다, 통증이 심하면 간호사에게 요청",
+        "route": "경구",
+        "purpose": "통증 조절"
+      },
+      {
+        "name": "항혈전 주사",
+        "schedule": "하루 1회, 간호사 투여",
+        "route": "주사",
+        "purpose": "혈전 예방"
+      },
+      {
+        "name": "예방적 항생제",
+        "schedule": "처방 기간 중 정해진 시간",
+        "route": "주사",
+        "purpose": "수술 후 감염 예방"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-10-31T17:00",
+        "item": "상처 소독",
+        "fasting": false,
+        "note": "하루 2회 (오전 10시, 오후 5시)"
+      },
+      {
+        "datetime": "2026-11-01T10:00",
+        "item": "상처 소독",
+        "fasting": false,
+        "note": ""
+      },
+      {
+        "datetime": "2026-11-01T14:00",
+        "item": "재활치료(보행 훈련)",
+        "fasting": false,
+        "note": "보조기 사용"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.9,
+        "pulse": 86,
+        "bp_sys": 117,
+        "bp_dia": 78,
+        "spo2": 96
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 37.0,
+        "pulse": 71,
+        "bp_sys": 122,
+        "bp_dia": 71,
+        "spo2": 98
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 37.1,
+        "pulse": 79,
+        "bp_sys": 118,
+        "bp_dia": 76,
+        "spo2": 97
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 37.0,
+        "pulse": 72,
+        "bp_sys": 120,
+        "bp_dia": 73,
+        "spo2": 97
+      }
+    ],
+    "care_notes": [
+      "상처 소독 하루 2회",
+      "보행 시 보조 필요 (낙상 주의)",
+      "수술한 다리를 베개로 높이기",
+      "기침·심호흡 운동",
+      "수술 부위 통증·붓기·진물·열 변화는 간호사에게 알리기"
+    ],
+    "diet": "일반식",
+    "mobility": "보행 보조 필요",
+    "fall_risk": "높음",
+    "last_test_result": "Abnormal",
+    "last_test_summary": "최근 검사 결과: 이상 소견 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "김나연",
+    "attending_physician": "송미래 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 42767,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p22",
+    "name": "최건우",
+    "age": 81,
+    "gender": "남",
+    "blood_type": "A+",
+    "ward": "정형외과 병동",
+    "room": "305호",
+    "bed": "3번 침상",
+    "admitted_at": "2026-10-31",
+    "expected_discharge": "2026-11-10",
+    "admission_type": "예정 입원",
+    "condition": "Arthritis",
+    "diagnosis": "골관절염 (통증 조절 및 재활)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "아세트아미노펜",
+        "schedule": "6시간마다",
+        "route": "경구",
+        "purpose": "통증 조절"
+      },
+      {
+        "name": "소염진통제",
+        "schedule": "아침·저녁 식후",
+        "route": "경구",
+        "purpose": "염증·통증 조절"
+      },
+      {
+        "name": "위장보호제",
+        "schedule": "식전",
+        "route": "경구",
+        "purpose": "위 보호"
+      }
+    ],
+    "allergies": [
+      "페니실린"
+    ],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T08:30",
+        "item": "혈액 염증 수치 검사",
+        "fasting": false,
+        "note": "금식 불필요"
+      },
+      {
+        "datetime": "2026-11-01T10:00",
+        "item": "물리치료",
+        "fasting": false,
+        "note": "편한 복장"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.8,
+        "pulse": 85,
+        "bp_sys": 120,
+        "bp_dia": 76,
+        "spo2": 96
+      }
+    ],
+    "care_notes": [
+      "관절 보호 및 무리한 동작 피하기",
+      "낙상 주의",
+      "온찜질 (간호사 안내에 따라)"
+    ],
+    "diet": "일반식",
+    "mobility": "독립 보행",
+    "fall_risk": "높음",
+    "last_test_result": "Normal",
+    "last_test_summary": "최근 검사 결과: 정상 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "박서진",
+    "attending_physician": "임재현 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 20320,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p23",
+    "name": "오보라",
+    "age": 29,
+    "gender": "여",
+    "blood_type": "AB-",
+    "ward": "종양내과 병동",
+    "room": "806호",
+    "bed": "1번 침상",
+    "admitted_at": "2026-10-27",
+    "expected_discharge": "2026-11-01",
+    "admission_type": "응급실 경유 입원",
+    "condition": "Cancer",
+    "diagnosis": "유방암 (항암 치료 5주기)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "항구토제",
+        "schedule": "항암 주사 전후",
+        "route": "경구/주사",
+        "purpose": "구역·구토 예방"
+      },
+      {
+        "name": "진통제",
+        "schedule": "필요 시",
+        "route": "경구",
+        "purpose": "통증 조절"
+      },
+      {
+        "name": "변비약",
+        "schedule": "필요 시",
+        "route": "경구",
+        "purpose": "변비 완화"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T08:00",
+        "item": "항암 전 혈액 검사",
+        "fasting": false,
+        "note": "금식 불필요"
+      },
+      {
+        "datetime": "2026-11-01T10:00",
+        "item": "항암 주사",
+        "fasting": false,
+        "note": "수 시간 소요 예상"
+      },
+      {
+        "datetime": "2026-11-02T14:00",
+        "item": "CT 촬영",
+        "fasting": true,
+        "note": "조영제 사용 · 금식 시간은 간호사에게 확인"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.8,
+        "pulse": 87,
+        "bp_sys": 127,
+        "bp_dia": 73,
+        "spo2": 98
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.9,
+        "pulse": 78,
+        "bp_sys": 116,
+        "bp_dia": 70,
+        "spo2": 98
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.6,
+        "pulse": 75,
+        "bp_sys": 112,
+        "bp_dia": 76,
+        "spo2": 96
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 37.8,
+        "pulse": 70,
+        "bp_sys": 124,
+        "bp_dia": 78,
+        "spo2": 98
+      }
+    ],
+    "care_notes": [
+      "손 위생 철저 (감염 예방)",
+      "발열 시 즉시 호출벨",
+      "구강 관리",
+      "식사는 소량씩 자주"
+    ],
+    "diet": "부드러운 식사",
+    "mobility": "독립 보행",
+    "fall_risk": "낮음",
+    "last_test_result": "Inconclusive",
+    "last_test_summary": "최근 검사 결과: 판정 보류 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [
+      "최근 체온 37.8℃ (항암 치료 중)"
+    ],
+    "assigned_nurse": "안유리",
+    "attending_physician": "권수아 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 43816,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p24",
+    "name": "황재민",
+    "age": 44,
+    "gender": "남",
+    "blood_type": "B-",
+    "ward": "종양내과 병동",
+    "room": "804호",
+    "bed": "3번 침상",
+    "admitted_at": "2026-10-27",
+    "expected_discharge": "2026-11-10",
+    "admission_type": "긴급 입원",
+    "condition": "Cancer",
+    "diagnosis": "폐암 (수술 후 회복)",
+    "surgery": {
+      "name": "폐엽 절제술",
+      "date": "2026-10-28",
+      "post_op_day": 3
+    },
+    "medications": [
+      {
+        "name": "아세트아미노펜",
+        "schedule": "6시간마다",
+        "route": "경구/주사",
+        "purpose": "통증 조절"
+      },
+      {
+        "name": "예방적 항생제",
+        "schedule": "처방 기간 중 정해진 시간",
+        "route": "주사",
+        "purpose": "수술 후 감염 예방"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-10-31T17:00",
+        "item": "상처 소독",
+        "fasting": false,
+        "note": "하루 2회"
+      },
+      {
+        "datetime": "2026-11-01T15:00",
+        "item": "조기 보행 운동",
+        "fasting": false,
+        "note": "간호사 동행"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 37.0,
+        "pulse": 82,
+        "bp_sys": 114,
+        "bp_dia": 71,
+        "spo2": 99
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 37.2,
+        "pulse": 78,
+        "bp_sys": 117,
+        "bp_dia": 78,
+        "spo2": 96
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 37.1,
+        "pulse": 67,
+        "bp_sys": 116,
+        "bp_dia": 76,
+        "spo2": 99
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.9,
+        "pulse": 76,
+        "bp_sys": 113,
+        "bp_dia": 80,
+        "spo2": 96
+      }
+    ],
+    "care_notes": [
+      "상처 소독 하루 2회",
+      "조기 보행 격려",
+      "기침·심호흡 운동",
+      "수술 부위 통증 악화·진물·열은 간호사에게 알리기"
+    ],
+    "diet": "일반식",
+    "mobility": "보행 보조 필요",
+    "fall_risk": "중간",
+    "last_test_result": "Inconclusive",
+    "last_test_summary": "최근 검사 결과: 판정 보류 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "황소민",
+    "attending_physician": "서동혁 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 7264,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p25",
+    "name": "홍민기",
+    "age": 62,
+    "gender": "남",
+    "blood_type": "A+",
+    "ward": "종양내과 병동",
+    "room": "806호",
+    "bed": "3번 침상",
+    "admitted_at": "2026-10-26",
+    "expected_discharge": "2026-11-05",
+    "admission_type": "긴급 입원",
+    "condition": "Cancer",
+    "diagnosis": "폐암 (수술 후 회복)",
+    "surgery": {
+      "name": "폐엽 절제술",
+      "date": "2026-10-27",
+      "post_op_day": 4
+    },
+    "medications": [
+      {
+        "name": "아세트아미노펜",
+        "schedule": "6시간마다",
+        "route": "경구/주사",
+        "purpose": "통증 조절"
+      },
+      {
+        "name": "예방적 항생제",
+        "schedule": "처방 기간 중 정해진 시간",
+        "route": "주사",
+        "purpose": "수술 후 감염 예방"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-10-31T17:00",
+        "item": "상처 소독",
+        "fasting": false,
+        "note": "하루 2회"
+      },
+      {
+        "datetime": "2026-11-01T15:00",
+        "item": "조기 보행 운동",
+        "fasting": false,
+        "note": "간호사 동행"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 37.0,
+        "pulse": 74,
+        "bp_sys": 126,
+        "bp_dia": 71,
+        "spo2": 96
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.9,
+        "pulse": 66,
+        "bp_sys": 117,
+        "bp_dia": 79,
+        "spo2": 99
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.8,
+        "pulse": 88,
+        "bp_sys": 115,
+        "bp_dia": 78,
+        "spo2": 96
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 37.1,
+        "pulse": 76,
+        "bp_sys": 112,
+        "bp_dia": 75,
+        "spo2": 98
+      }
+    ],
+    "care_notes": [
+      "상처 소독 하루 2회",
+      "조기 보행 격려",
+      "기침·심호흡 운동",
+      "수술 부위 통증 악화·진물·열은 간호사에게 알리기"
+    ],
+    "diet": "일반식",
+    "mobility": "보행 보조 필요",
+    "fall_risk": "높음",
+    "last_test_result": "Abnormal",
+    "last_test_summary": "최근 검사 결과: 이상 소견 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "안유리",
+    "attending_physician": "권수아 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 23361,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p26",
+    "name": "강순옥",
+    "age": 67,
+    "gender": "여",
+    "blood_type": "A-",
+    "ward": "종양내과 병동",
+    "room": "807호",
+    "bed": "2번 침상",
+    "admitted_at": "2026-10-31",
+    "expected_discharge": "2026-11-10",
+    "admission_type": "응급실 경유 입원",
+    "condition": "Cancer",
+    "diagnosis": "갑상선암 (항암 치료 3주기)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "항구토제",
+        "schedule": "항암 주사 전후",
+        "route": "경구/주사",
+        "purpose": "구역·구토 예방"
+      },
+      {
+        "name": "진통제",
+        "schedule": "필요 시",
+        "route": "경구",
+        "purpose": "통증 조절"
+      },
+      {
+        "name": "변비약",
+        "schedule": "필요 시",
+        "route": "경구",
+        "purpose": "변비 완화"
+      }
+    ],
+    "allergies": [
+      "조영제"
+    ],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T08:00",
+        "item": "항암 전 혈액 검사",
+        "fasting": false,
+        "note": "금식 불필요"
+      },
+      {
+        "datetime": "2026-11-01T10:00",
+        "item": "항암 주사",
+        "fasting": false,
+        "note": "수 시간 소요 예상"
+      },
+      {
+        "datetime": "2026-11-02T14:00",
+        "item": "CT 촬영",
+        "fasting": true,
+        "note": "조영제 사용 · 금식 시간은 간호사에게 확인"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.8,
+        "pulse": 86,
+        "bp_sys": 121,
+        "bp_dia": 74,
+        "spo2": 97
+      }
+    ],
+    "care_notes": [
+      "손 위생 철저 (감염 예방)",
+      "발열 시 즉시 호출벨",
+      "구강 관리",
+      "식사는 소량씩 자주"
+    ],
+    "diet": "부드러운 식사",
+    "mobility": "독립 보행",
+    "fall_risk": "중간",
+    "last_test_result": "Abnormal",
+    "last_test_summary": "최근 검사 결과: 이상 소견 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "황소민",
+    "attending_physician": "서동혁 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 40274,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p27",
+    "name": "장상우",
+    "age": 78,
+    "gender": "남",
+    "blood_type": "B-",
+    "ward": "종양내과 병동",
+    "room": "801호",
+    "bed": "4번 침상",
+    "admitted_at": "2026-10-28",
+    "expected_discharge": "2026-11-08",
+    "admission_type": "긴급 입원",
+    "condition": "Cancer",
+    "diagnosis": "폐암 (항암 치료 6주기)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "항구토제",
+        "schedule": "항암 주사 전후",
+        "route": "경구/주사",
+        "purpose": "구역·구토 예방"
+      },
+      {
+        "name": "진통제",
+        "schedule": "필요 시",
+        "route": "경구",
+        "purpose": "통증 조절"
+      },
+      {
+        "name": "변비약",
+        "schedule": "필요 시",
+        "route": "경구",
+        "purpose": "변비 완화"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T08:00",
+        "item": "항암 전 혈액 검사",
+        "fasting": false,
+        "note": "금식 불필요"
+      },
+      {
+        "datetime": "2026-11-01T10:00",
+        "item": "항암 주사",
+        "fasting": false,
+        "note": "수 시간 소요 예상"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.7,
+        "pulse": 71,
+        "bp_sys": 123,
+        "bp_dia": 76,
+        "spo2": 99
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.6,
+        "pulse": 86,
+        "bp_sys": 117,
+        "bp_dia": 77,
+        "spo2": 98
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.8,
+        "pulse": 71,
+        "bp_sys": 121,
+        "bp_dia": 74,
+        "spo2": 99
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.6,
+        "pulse": 66,
+        "bp_sys": 120,
+        "bp_dia": 78,
+        "spo2": 98
+      }
+    ],
+    "care_notes": [
+      "손 위생 철저 (감염 예방)",
+      "발열 시 즉시 호출벨",
+      "구강 관리",
+      "식사는 소량씩 자주"
+    ],
+    "diet": "부드러운 식사",
+    "mobility": "독립 보행",
+    "fall_risk": "높음",
+    "last_test_result": "Normal",
+    "last_test_summary": "최근 검사 결과: 정상 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "안유리",
+    "attending_physician": "권수아 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 46441,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p28",
+    "name": "최민기",
+    "age": 32,
+    "gender": "남",
+    "blood_type": "A+",
+    "ward": "내분비내과 병동",
+    "room": "501호",
+    "bed": "3번 침상",
+    "admitted_at": "2026-10-28",
+    "expected_discharge": "2026-11-01",
+    "admission_type": "예정 입원",
+    "condition": "Obesity",
+    "diagnosis": "고도비만 (대사 평가 및 체중 관리)",
+    "surgery": null,
+    "medications": [],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T06:30",
+        "item": "갑상선 기능 혈액 검사",
+        "fasting": true,
+        "note": "공복 채혈"
+      },
+      {
+        "datetime": "2026-11-02T21:00",
+        "item": "수면 다원 검사",
+        "fasting": false,
+        "note": "야간 검사 · 저녁 식사 후 입실"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.8,
+        "pulse": 75,
+        "bp_sys": 128,
+        "bp_dia": 79,
+        "spo2": 99
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.5,
+        "pulse": 83,
+        "bp_sys": 121,
+        "bp_dia": 68,
+        "spo2": 97
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.5,
+        "pulse": 74,
+        "bp_sys": 116,
+        "bp_dia": 72,
+        "spo2": 96
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.9,
+        "pulse": 80,
+        "bp_sys": 115,
+        "bp_dia": 73,
+        "spo2": 99
+      }
+    ],
+    "care_notes": [
+      "식이 기록",
+      "보행 운동 하루 2회",
+      "매일 아침 체중 측정"
+    ],
+    "diet": "저열량식",
+    "mobility": "독립 보행",
+    "fall_risk": "낮음",
+    "last_test_result": "Normal",
+    "last_test_summary": "최근 검사 결과: 정상 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "문하윤",
+    "attending_physician": "한상민 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 16076,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p29",
+    "name": "강재민",
+    "age": 47,
+    "gender": "남",
+    "blood_type": "B-",
+    "ward": "내분비내과 병동",
+    "room": "504호",
+    "bed": "2번 침상",
+    "admitted_at": "2026-10-29",
+    "expected_discharge": "2026-11-03",
+    "admission_type": "응급실 경유 입원",
+    "condition": "Obesity",
+    "diagnosis": "고도비만 (대사 평가 및 체중 관리)",
+    "surgery": null,
+    "medications": [],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T06:30",
+        "item": "갑상선 기능 혈액 검사",
+        "fasting": true,
+        "note": "공복 채혈"
+      },
+      {
+        "datetime": "2026-11-02T10:00",
+        "item": "운동 처방 상담",
+        "fasting": false,
+        "note": "편한 복장"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.8,
+        "pulse": 79,
+        "bp_sys": 127,
+        "bp_dia": 78,
+        "spo2": 98
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.9,
+        "pulse": 86,
+        "bp_sys": 121,
+        "bp_dia": 75,
+        "spo2": 99
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.9,
+        "pulse": 82,
+        "bp_sys": 119,
+        "bp_dia": 77,
+        "spo2": 98
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.5,
+        "pulse": 80,
+        "bp_sys": 128,
+        "bp_dia": 73,
+        "spo2": 97
+      }
+    ],
+    "care_notes": [
+      "식이 기록",
+      "보행 운동 하루 2회",
+      "매일 아침 체중 측정"
+    ],
+    "diet": "저열량식",
+    "mobility": "독립 보행",
+    "fall_risk": "낮음",
+    "last_test_result": "Abnormal",
+    "last_test_summary": "최근 검사 결과: 이상 소견 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "백소영",
+    "attending_physician": "윤서현 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 25574,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p30",
+    "name": "김시우",
+    "age": 60,
+    "gender": "남",
+    "blood_type": "B-",
+    "ward": "내분비내과 병동",
+    "room": "510호",
+    "bed": "3번 침상",
+    "admitted_at": "2026-10-27",
+    "expected_discharge": "2026-11-02",
+    "admission_type": "긴급 입원",
+    "condition": "Obesity",
+    "diagnosis": "고도비만 (대사 평가 및 체중 관리)",
+    "surgery": null,
+    "medications": [
+      {
+        "name": "암로디핀",
+        "schedule": "아침 식후",
+        "route": "경구",
+        "purpose": "혈압 조절"
+      }
+    ],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T06:30",
+        "item": "갑상선 기능 혈액 검사",
+        "fasting": true,
+        "note": "공복 채혈"
+      },
+      {
+        "datetime": "2026-11-01T14:00",
+        "item": "영양 상담",
+        "fasting": false,
+        "note": ""
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.9,
+        "pulse": 79,
+        "bp_sys": 122,
+        "bp_dia": 80,
+        "spo2": 99
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.6,
+        "pulse": 80,
+        "bp_sys": 112,
+        "bp_dia": 73,
+        "spo2": 99
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.8,
+        "pulse": 67,
+        "bp_sys": 124,
+        "bp_dia": 69,
+        "spo2": 96
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.7,
+        "pulse": 70,
+        "bp_sys": 119,
+        "bp_dia": 72,
+        "spo2": 99
+      }
+    ],
+    "care_notes": [
+      "식이 기록",
+      "보행 운동 하루 2회",
+      "매일 아침 체중 측정"
+    ],
+    "diet": "저열량식",
+    "mobility": "독립 보행",
+    "fall_risk": "중간",
+    "last_test_result": "Inconclusive",
+    "last_test_summary": "최근 검사 결과: 판정 보류 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "문하윤",
+    "attending_physician": "한상민 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 28799,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p31",
+    "name": "강영숙",
+    "age": 73,
+    "gender": "여",
+    "blood_type": "A-",
+    "ward": "내분비내과 병동",
+    "room": "508호",
+    "bed": "3번 침상",
+    "admitted_at": "2026-10-28",
+    "expected_discharge": "2026-11-10",
+    "admission_type": "긴급 입원",
+    "condition": "Obesity",
+    "diagnosis": "고도비만 (대사 평가 및 체중 관리)",
+    "surgery": null,
+    "medications": [],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T06:30",
+        "item": "갑상선 기능 혈액 검사",
+        "fasting": true,
+        "note": "공복 채혈"
+      },
+      {
+        "datetime": "2026-11-01T14:00",
+        "item": "영양 상담",
+        "fasting": false,
+        "note": ""
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-30T06:00",
+        "temp": 36.7,
+        "pulse": 79,
+        "bp_sys": 116,
+        "bp_dia": 72,
+        "spo2": 96
+      },
+      {
+        "time": "2026-10-30T14:00",
+        "temp": 36.8,
+        "pulse": 69,
+        "bp_sys": 122,
+        "bp_dia": 68,
+        "spo2": 98
+      },
+      {
+        "time": "2026-10-30T22:00",
+        "temp": 36.8,
+        "pulse": 67,
+        "bp_sys": 114,
+        "bp_dia": 72,
+        "spo2": 96
+      },
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.6,
+        "pulse": 71,
+        "bp_sys": 123,
+        "bp_dia": 77,
+        "spo2": 98
+      }
+    ],
+    "care_notes": [
+      "식이 기록",
+      "보행 운동 하루 2회",
+      "매일 아침 체중 측정"
+    ],
+    "diet": "저열량식",
+    "mobility": "독립 보행",
+    "fall_risk": "중간",
+    "last_test_result": "Abnormal",
+    "last_test_summary": "최근 검사 결과: 이상 소견 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "백소영",
+    "attending_physician": "윤서현 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 25340,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  },
+  {
+    "id": "p32",
+    "name": "최서윤",
+    "age": 82,
+    "gender": "여",
+    "blood_type": "O-",
+    "ward": "내분비내과 병동",
+    "room": "502호",
+    "bed": "4번 침상",
+    "admitted_at": "2026-10-31",
+    "expected_discharge": "2026-11-10",
+    "admission_type": "긴급 입원",
+    "condition": "Obesity",
+    "diagnosis": "고도비만 (대사 평가 및 체중 관리)",
+    "surgery": null,
+    "medications": [],
+    "allergies": [],
+    "allergy_checked": true,
+    "schedule": [
+      {
+        "datetime": "2026-11-01T14:00",
+        "item": "영양 상담",
+        "fasting": false,
+        "note": ""
+      },
+      {
+        "datetime": "2026-11-02T10:00",
+        "item": "운동 처방 상담",
+        "fasting": false,
+        "note": "편한 복장"
+      }
+    ],
+    "vitals": [
+      {
+        "time": "2026-10-31T06:00",
+        "temp": 36.9,
+        "pulse": 66,
+        "bp_sys": 118,
+        "bp_dia": 79,
+        "spo2": 97
+      }
+    ],
+    "care_notes": [
+      "식이 기록",
+      "보행 운동 하루 2회",
+      "매일 아침 체중 측정"
+    ],
+    "diet": "저열량식",
+    "mobility": "보행 보조 필요",
+    "fall_risk": "높음",
+    "last_test_result": "Abnormal",
+    "last_test_summary": "최근 검사 결과: 이상 소견 (자세한 설명은 담당 의료진이 안내)",
+    "watch_flags": [],
+    "assigned_nurse": "문하윤",
+    "attending_physician": "한상민 교수",
+    "synthetic": true,
+    "provenance": {
+      "method": "csv_derived",
+      "csv_row": 36447,
+      "csv_fields_used": [
+        "Age",
+        "Gender",
+        "Blood Type",
+        "Medical Condition",
+        "Admission Type",
+        "Test Results"
+      ]
+    }
+  }
+]

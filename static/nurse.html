@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NEON 간호사</title>
+  <link rel="icon" href="data:,">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 min-h-screen">
+  <header class="bg-slate-800 text-white px-6 py-3 flex items-center justify-between">
+    <div class="font-bold tracking-wide">NEON <span class="font-normal text-slate-300 text-sm ml-2">간호사 스테이션</span></div>
+    <div class="text-sm">
+      <span id="count" class="mr-4 text-amber-300"></span>담당 간호사 <b id="nurse"></b>
+      <button id="sound" class="ml-4 border border-slate-400 rounded px-2 py-0.5 text-xs">경보음 켜기</button>
+    </div>
+  </header>
+  <div id="conn" class="hidden bg-amber-500 text-white text-center text-sm py-1">서버와 연결이 끊겼어요. 다시 연결하는 중…</div>
+  <div id="alarm" class="hidden bg-red-600 text-white px-6 py-3 font-bold animate-pulse"></div>
+
+  <div class="max-w-6xl mx-auto p-4 grid lg:grid-cols-3 gap-4">
+    <section class="lg:col-span-2">
+      <h2 class="font-semibold text-slate-700 mb-2">확인 대기</h2>
+      <div id="queue" class="space-y-3"></div>
+      <div id="empty" class="text-slate-400 text-sm py-8 text-center hidden">대기 중인 요청이 없어요</div>
+    </section>
+    <aside>
+      <h2 class="font-semibold text-slate-700 mb-2">AI 처리 내역</h2>
+      <div id="log" class="space-y-2"></div>
+    </aside>
+  </div>
+
+  <script src="common.js"></script>
+  <script>
+    const NURSE = "이지은";
+    $("#nurse").textContent = NURSE;
+
+    const SEV = { 5: "bg-red-600", 4: "bg-orange-500", 3: "bg-amber-500", 2: "bg-yellow-400 text-slate-800", 1: "bg-slate-400" };
+    const queueEl = $("#queue");
+    const cards = new Map();
+    let lastLog = "";
+
+    function patientInfo(p) {
+      const v = p.vitals[p.vitals.length - 1];
+      return `<details class="mt-2 text-sm text-slate-600">
+        <summary class="cursor-pointer text-slate-500">환자 정보</summary>
+        <ul class="mt-1 space-y-0.5 pl-2">
+          <li>진단: ${esc(p.diagnosis)}</li>
+          ${p.surgery ? `<li>수술: ${esc(p.surgery.name)} (${esc(p.surgery.date)}, 수술 ${esc(p.surgery.post_op_day)}일차)</li>` : ""}
+          ${v ? `<li>최근 활력징후: 체온 ${esc(v.temp)} / 맥박 ${esc(v.pulse)} (${esc(v.time)})</li>` : ""}
+          <li>케어 노트: ${p.care_notes.map(esc).join(", ")}</li>
+          <li>복약: ${p.medications.map((m) => esc(m.name) + " " + esc(m.schedule)).join(", ")}</li>
+        </ul></details>`;
+    }
+
+    function cardEl(r) {
+      const el = document.createElement("article");
+      el.dataset.id = r.id;
+      const p = r.patient;
+      const head = `<div class="flex items-center gap-2">
+          <span class="${SEV[r.severity] || SEV[3]} text-white text-xs font-bold rounded px-2 py-0.5">중증도 ${esc(r.severity)}</span>
+          <b>${esc(p.name)}</b><span class="text-sm text-slate-500">${esc(p.room)}</span>
+          <span class="ml-auto text-xs text-slate-400">${fmtTime(r.created_at)}</span></div>`;
+
+      if (r.status === "emergency") {
+        el.className = "rounded-lg border-2 border-red-600 bg-red-50 p-4 shadow";
+        el.innerHTML = `<div class="text-red-700 font-bold mb-1">긴급 경보</div>${head}
+          <p class="mt-2 text-lg">"${esc(r.text)}"</p>${patientInfo(p)}
+          <div class="mt-3"><button data-act="ack" class="bg-red-600 text-white rounded px-4 py-2 font-semibold disabled:opacity-50">확인했습니다</button></div>
+          <div data-err class="text-sm text-red-600 mt-1"></div>`;
+        return el;
+      }
+
+      el.className = "rounded-lg border bg-white p-4 shadow-sm";
+      el.innerHTML = `${head}
+        <div class="mt-2 text-sm text-slate-500">${esc(r.topic)}</div>
+        <p class="mt-1">"${esc(r.text)}"</p>
+        <p class="mt-1 text-sm text-slate-600">요약: ${esc(r.summary)}</p>
+        <div class="mt-1 flex flex-wrap gap-1">${r.evidence.map((e) => `<span class="text-xs bg-slate-100 rounded px-2 py-0.5">${esc(e)}</span>`).join("")}
+          <span class="text-xs bg-blue-50 text-blue-700 rounded px-2 py-0.5">권고: ${esc(r.suggested_action)}</span></div>
+        ${patientInfo(p)}
+        <label class="block mt-3 text-sm font-medium text-slate-700">AI 초안 (수정 가능)</label>
+        <textarea data-draft rows="3" class="w-full border rounded p-2 mt-1">${esc(r.draft_answer)}</textarea>
+        <div class="mt-2 flex items-center gap-2 text-sm">
+          <label class="flex items-center gap-1"><input data-visit type="checkbox" ${r.suggested_action === "방문 권고" ? "checked" : ""}> 방문 필요</label>
+          <input data-eta type="number" min="1" value="10" class="w-16 border rounded px-2 py-1"> 분 후
+        </div>
+        <div class="mt-3 flex gap-2">
+          <button data-act="approve" class="bg-teal-600 text-white rounded px-4 py-2 disabled:opacity-50">승인</button>
+          <button data-act="edit" class="bg-blue-600 text-white rounded px-4 py-2 disabled:opacity-50">수정 후 전송</button>
+          <button data-act="direct" class="border border-slate-400 rounded px-4 py-2 disabled:opacity-50">직접 방문/연락</button>
+        </div>
+        <div data-err class="text-sm text-red-600 mt-1"></div>`;
+      return el;
+    }
+
+    queueEl.addEventListener("click", async (e) => {
+      const btn = e.target.closest("[data-act]");
+      if (!btn) return;
+      const card = btn.closest("[data-id]");
+      const id = card.dataset.id;
+      const act = btn.dataset.act;
+      const buttons = card.querySelectorAll("button");
+      buttons.forEach((b) => (b.disabled = true));
+      card.querySelector("[data-err]").textContent = "";
+      try {
+        if (act === "ack") {
+          await api("POST", `/api/nurse/requests/${encodeURIComponent(id)}/ack`, { nurse_name: NURSE });
+        } else {
+          await api("POST", `/api/nurse/requests/${encodeURIComponent(id)}/respond`, {
+            action: act,
+            text: card.querySelector("[data-draft]").value,
+            visit: {
+              needed: card.querySelector("[data-visit]").checked,
+              eta_min: card.querySelector("[data-visit]").checked ? Number(card.querySelector("[data-eta]").value) || 10 : null,
+            },
+            nurse_name: NURSE,
+          });
+        }
+        await refresh();
+      } catch (err) {
+        card.querySelector("[data-err]").textContent = "처리하지 못했어요: " + err.message;
+        buttons.forEach((b) => (b.disabled = false));
+      }
+    });
+
+    function renderQueue(items) {
+      const ids = new Set(items.map((r) => r.id));
+      for (const [id, c] of cards) if (!ids.has(id)) { c.el.remove(); cards.delete(id); }
+      items.forEach((r, i) => {
+        const j = JSON.stringify(r);
+        let c = cards.get(r.id);
+        if (!c || c.json !== j) {
+          const el = cardEl(r);
+          if (c) c.el.replaceWith(el);
+          c = { json: j, el };
+          cards.set(r.id, c);
+        }
+        if (queueEl.children[i] !== c.el) queueEl.insertBefore(c.el, queueEl.children[i] || null);
+      });
+      $("#empty").classList.toggle("hidden", items.length > 0);
+      $("#count").textContent = items.length ? `대기 ${items.length}건` : "";
+
+      const emergencies = items.filter((r) => r.status === "emergency");
+      const alarm = $("#alarm");
+      alarm.classList.toggle("hidden", !emergencies.length);
+      alarm.textContent = emergencies.length
+        ? `긴급 ${emergencies.length}건: ${emergencies.map((r) => `${r.patient.name} (${r.patient.room})`).join(", ")}` +
+          (ctx ? "" : "  ·  경보음이 꺼져 있어요")
+        : "";
+      setAlarm(emergencies.length > 0);
+    }
+
+    let ctx = null, beepTimer = null;
+    function beep() {
+      if (!ctx) return;
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.frequency.value = 880;
+      g.gain.value = 0.15;
+      o.connect(g);
+      g.connect(ctx.destination);
+      o.start();
+      o.stop(ctx.currentTime + 0.25);
+    }
+    function setAlarm(on) {
+      if (on && !beepTimer) { beep(); beepTimer = setInterval(beep, 1500); }
+      if (!on && beepTimer) { clearInterval(beepTimer); beepTimer = null; }
+    }
+    $("#sound").onclick = () => {
+      if (ctx) { ctx.close(); ctx = null; $("#sound").textContent = "경보음 켜기"; return; }
+      ctx = new (window.AudioContext || window.webkitAudioContext)();
+      $("#sound").textContent = "경보음 켜짐";
+      beep();
+    };
+
+    function renderLog(log) {
+      const j = JSON.stringify(log);
+      if (j === lastLog) return;
+      lastLog = j;
+      $("#log").innerHTML = log.length ? log.map((l) => `<div class="bg-white border rounded p-3 text-sm">
+          <div class="flex justify-between text-slate-500"><b class="text-slate-700">${esc(l.patient_name)}</b><span>${fmtTime(l.created_at)}</span></div>
+          <div class="mt-1">Q. ${esc(l.text)}</div>
+          <div class="mt-1 text-teal-700">A. ${esc(l.answer)}</div></div>`).join("")
+        : `<div class="text-slate-400 text-sm">아직 없어요</div>`;
+    }
+
+    async function refresh() {
+      const d = await api("GET", "/api/nurse/queue");
+      renderQueue(d.queue);
+      renderLog(d.ai_log);
+    }
+    poll(refresh);
+  </script>
+</body>
+</html>
