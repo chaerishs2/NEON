@@ -30,4 +30,7 @@ python -m uvicorn main:app --port 8000
 - 환자 화면: http://localhost:8000/patient.html (이름으로 로그인, 예: 박정호)
 - 간호사 화면: http://localhost:8000/nurse.html (이름 입력, 비밀번호는 아무 값)
 - 서버를 켤 때마다 대화 내역은 비워진 상태로 시작합니다.
-- 환자 데이터(`data/patients.json`)는 가상 데이터입니다. 로그인은 화면 구분용이며 실제 인증이 아닙니다.
+
+## 알아둘 것
+- **OpenAI 키가 필요합니다.** `.env.example`을 `.env`로 복사해 `OPENAI_API_KEY`를 넣어 주세요. 키가 없으면 AI 응답 없이 모든 질문이 간호사 큐로만 넘어갑니다.
+- **환자 이름은 `data/patients.json`의 가상 이름으로 로그인합니다.** 실제 환자 데이터가 아니며, 로그인은 화면 구분용이라 실제 인증이 아닙니다.
