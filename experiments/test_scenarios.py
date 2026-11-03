@@ -1,11 +1,18 @@
 import json
 import os
+import sys
+import tempfile
 import time
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))  # 프로젝트 루트의 main, store, agent를 가져오기 위해
 
 from fastapi.testclient import TestClient
 
 from main import app
 import store
+
+store.REQUESTS_FILE = os.path.join(tempfile.gettempdir(), "neon_scenarios_requests.json")  # 끝에서 이 파일을 지우므로 운영 data/requests.json과 분리
 from agent import context, guard
 
 for p in store.patients():
