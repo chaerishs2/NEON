@@ -1,5 +1,5 @@
 import store
-from agent import classifier, context, guard, prompt
+from agent import classifier, context, drafter, guard, prompt
 from agent.emergency import is_emergency
 
 EMERGENCY_NOTICE = "의료진을 바로 호출했어요. 그대로 계세요."
@@ -17,6 +17,7 @@ def _finish(req, result, status, sender):
             suggested_action=result["suggested_action"],
             patient_message=result["patient_message"],
             evidence=result["evidence"],
+            nurse_guide=result.get("nurse_guide", ""),
         )
         store.add_message(req, sender, result["patient_message"])
 
@@ -45,11 +46,16 @@ def _run(req):
         return
 
     ctx = context.load(patient, req["id"])
+    user_prompt = prompt.build_user(ctx, text)
     try:
-        raw = classifier.classify(prompt.build_user(ctx, text))
+        raw = classifier.classify(user_prompt)
     except Exception:
         raw = None
     result = guard.check(raw, text)
+    if raw and result["category"] == "needs_nurse" and 2 <= result["severity"] <= 4:
+        drafted = drafter.draft(user_prompt, result)
+        if drafted:
+            result.update(drafted)
     if result["category"] == "simple_info":
         _finish(req, result, "answered_by_ai", "ai")
     else:

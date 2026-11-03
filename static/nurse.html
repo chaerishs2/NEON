@@ -3,143 +3,229 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NEON 간호사</title>
+  <title>PULSON 간호사</title>
   <link rel="icon" href="data:,">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="pulson.css">
 </head>
-<body class="bg-slate-100 min-h-screen">
-  <header class="bg-slate-800 text-white px-6 py-3 flex items-center justify-between">
-    <div class="font-bold tracking-wide">NEON <span class="font-normal text-slate-300 text-sm ml-2">간호사 스테이션</span></div>
-    <div class="text-sm">
-      <span id="count" class="mr-4 text-amber-300"></span>담당 간호사 <b id="nurse"></b>
-      <button id="sound" class="ml-4 border border-slate-400 rounded px-2 py-0.5 text-xs">경보음 켜기</button>
+<body class="nurse-page">
+  <!-- 로그인 -->
+  <div id="v-login" class="login-wrap hidden">
+    <div class="login-box">
+      <div class="logo">PULSON</div>
+      <form id="login">
+        <div class="stack" style="gap:8px">
+          <h1>간호사 로그인</h1>
+          <p class="sub">병원에서 안내받은 비밀번호를 입력해 주세요.</p>
+        </div>
+        <div class="stack" style="gap:20px">
+          <div class="field"><label for="l-name">간호사 이름</label>
+            <input id="l-name" class="box-input" autocomplete="off" autofocus placeholder="이름을 입력해 주세요"></div>
+          <div class="field"><label for="l-pw">비밀번호</label>
+            <input id="l-pw" class="box-input" type="password" autocomplete="current-password" placeholder="비밀번호를 입력해 주세요"></div>
+        </div>
+        <div id="l-err" class="err"></div>
+        <button class="btn btn-primary btn-block" style="height:auto;padding:9px 0">로그인</button>
+        <p class="login-note">환자 정보 보호를 위해 공용 기기에서는<br>업무 종료 후 로그아웃해 주세요.</p>
+      </form>
     </div>
-  </header>
-  <div id="conn" class="hidden bg-amber-500 text-white text-center text-sm py-1">서버와 연결이 끊겼어요. 다시 연결하는 중…</div>
-  <div id="alarm" class="hidden bg-red-600 text-white px-6 py-3 font-bold animate-pulse"></div>
-
-  <div class="max-w-6xl mx-auto p-4 grid lg:grid-cols-3 gap-4">
-    <section class="lg:col-span-2">
-      <h2 class="font-semibold text-slate-700 mb-2">확인 대기</h2>
-      <div id="queue" class="space-y-3"></div>
-      <div id="empty" class="text-slate-400 text-sm py-8 text-center hidden">대기 중인 요청이 없어요</div>
-    </section>
-    <aside>
-      <h2 class="font-semibold text-slate-700 mb-2">AI 처리 내역</h2>
-      <div id="log" class="space-y-2"></div>
-    </aside>
   </div>
+
+  <!-- 업무 화면 -->
+  <div id="v-main" class="shell hidden">
+    <nav class="side">
+      <div class="logo">PULSON</div>
+      <div class="sub">간호사 스테이션</div>
+      <div class="nav-item">
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="2.5" width="12" height="13" rx="1.5"/><path d="M6 6.5h6M6 9.5h6M6 12.5h3"/></svg>
+        환자 요청
+      </div>
+    </nav>
+
+    <div class="main">
+      <header class="top">
+        <h2>환자 요청</h2>
+        <div class="who">
+          <button id="sound" class="link-btn">경보음 켜기</button>
+          <span><span id="nurse"></span> 간호사</span>
+          <button id="logout" class="link-btn">로그아웃</button>
+        </div>
+      </header>
+      <div id="conn" class="conn hidden">서버와 연결이 끊겼어요. 다시 연결하는 중…</div>
+      <div id="alarm" class="alarm pulse hidden"></div>
+
+      <div class="work">
+        <div class="summary">
+          <div>
+            <h1>요청 검토</h1>
+            <p>확인이 필요한 요청부터 살펴보고, 답변을 이어서 관리하세요.</p>
+          </div>
+          <div class="stats"><span>확인 대기 <span id="count" class="accent">0</span></span></div>
+        </div>
+
+        <label class="search">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="9" cy="9" r="5.5"/><path d="m13.5 13.5 3.5 3.5"/></svg>
+          <input id="q" autocomplete="off" placeholder="환자 이름 또는 병실 검색">
+        </label>
+
+        <div class="cols">
+          <section class="col-list">
+            <div class="row"><div class="h3">확인 대기  <span id="count2" class="accent">0</span></div></div>
+            <div id="queue" class="stack"></div>
+            <div id="empty" class="empty hidden">대기 중인 요청이 없어요</div>
+            <div id="pick" class="empty">요청을 선택해 환자 메시지와<br>AI 초안을 함께 검토하세요.</div>
+          </section>
+          <section id="review" class="col-review"></section>
+          <aside class="col-log">
+            <div class="h3">AI 처리 내역</div>
+            <div id="log" class="stack"></div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 환자 정보 우측 패널 -->
+  <div id="overlay" class="overlay hidden"><aside id="panel" class="panel"></aside></div>
 
   <script src="common.js"></script>
   <script>
-    const NURSE = "이지은";
-    $("#nurse").textContent = NURSE;
+    let NURSE = sessionStorage.getItem("neon_nurse_name") || "";
 
-    const SEV = { 5: "bg-red-600", 4: "bg-orange-500", 3: "bg-amber-500", 2: "bg-yellow-400 text-slate-800", 1: "bg-slate-400" };
     const queueEl = $("#queue");
-    const cards = new Map();
-    let lastLog = "";
+    let items = [], selId = null, shown = "", lastLog = "", filter = "";
 
-    function patientInfo(p) {
+    const isEmergency = (r) => r.status === "emergency" || r.severity >= 4;
+    const sevPill = (r) => isEmergency(r)
+      ? `<span class="pill danger" title="중증도 ${esc(r.severity)}">응급</span>`
+      : `<span class="pill ok" title="중증도 ${esc(r.severity)}">비응급</span>`;
+
+    function patientPanel(r) {
+      const p = r.patient;
       const v = p.vitals[p.vitals.length - 1];
-      return `<details class="mt-2 text-sm text-slate-600">
-        <summary class="cursor-pointer text-slate-500">환자 정보</summary>
-        <ul class="mt-1 space-y-0.5 pl-2">
-          <li>진단: ${esc(p.diagnosis)}</li>
-          ${p.surgery ? `<li>수술: ${esc(p.surgery.name)} (${esc(p.surgery.date)}, 수술 ${esc(p.surgery.post_op_day)}일차)</li>` : ""}
-          ${v ? `<li>최근 활력징후: 체온 ${esc(v.temp)} / 맥박 ${esc(v.pulse)} (${esc(v.time)})</li>` : ""}
-          <li>케어 노트: ${p.care_notes.map(esc).join(", ")}</li>
-          <li>복약: ${p.medications.map((m) => esc(m.name) + " " + esc(m.schedule)).join(", ")}</li>
-        </ul></details>`;
+      const row = (k, val) => `<div class="info-row"><div class="k">${k}</div><div class="v">${val}</div></div>`;
+      return `<div class="ptitle"><span>환자 정보</span><button id="close" aria-label="닫기">×</button></div>
+        <div class="pid"><b>${esc(p.name)}</b><span>${esc(p.room)}</span></div>
+        <div class="info"><h4>진료 정보</h4>
+          ${row("진단", esc(p.diagnosis))}
+          ${p.surgery ? row("수술", `${esc(p.surgery.name)} (${esc(p.surgery.date)}, 수술 ${esc(p.surgery.post_op_day)}일차)`) : ""}
+          ${v ? row("최근 활력징후", `체온 ${esc(v.temp)} / 맥박 ${esc(v.pulse)} (${esc(v.time)})`) : ""}
+          ${row("케어 노트", p.care_notes.map(esc).join(", "))}
+          ${row("복약", p.medications.map((m) => esc(m.name) + " " + esc(m.schedule)).join(", "))}
+        </div>
+        <div class="divider"></div>
+        <h4>현재 요청</h4>
+        <div class="cur">${sevPill(r)}<div class="t">${esc(r.topic)}</div><div class="q">“${esc(r.text)}”</div></div>`;
     }
 
-    function cardEl(r) {
-      const el = document.createElement("article");
-      el.dataset.id = r.id;
+    function openPanel(r) {
+      $("#panel").innerHTML = patientPanel(r);
+      $("#overlay").classList.remove("hidden");
+    }
+    const closePanel = () => $("#overlay").classList.add("hidden");
+    $("#overlay").addEventListener("click", (e) => {
+      if (e.target.id === "overlay" || e.target.closest("#close")) closePanel();
+    });
+
+    function listItem(r) {
       const p = r.patient;
-      const head = `<div class="flex items-center gap-2">
-          <span class="${SEV[r.severity] || SEV[3]} text-white text-xs font-bold rounded px-2 py-0.5">중증도 ${esc(r.severity)}</span>
-          <b>${esc(p.name)}</b><span class="text-sm text-slate-500">${esc(p.room)}</span>
-          <span class="ml-auto text-xs text-slate-400">${fmtTime(r.created_at)}</span></div>`;
+      return `<button class="req ${r.id === selId ? "sel" : ""}" data-pick="${esc(r.id)}">
+        <div class="row" style="height:28px">${sevPill(r)}<span class="small">${fmtTime(r.created_at)}</span></div>
+        <div class="row"><span class="who">${esc(p.name)}</span><span class="small">${esc(p.room)}</span></div>
+        <div class="t">${esc(r.topic)}</div>
+        <div class="d">${esc(r.summary)}</div></button>`;
+    }
+
+    function reviewEl(r) {
+      const p = r.patient;
+      const head = `<div class="row review-id"><div class="stack" style="gap:5px"><span class="name">${esc(p.name)}</span><span class="small">${esc(p.room)}</span></div>
+          <button class="btn" data-act="info">환자 정보 보기</button></div>
+        <div class="review-title"><span>${esc(r.topic)}</span>${sevPill(r)}</div>
+        <div class="quote"><span class="small" style="font-weight:500">환자 메시지 · ${fmtTime(r.created_at)}</span><div>${esc(r.text)}</div></div>`;
 
       if (r.status === "emergency") {
-        el.className = "rounded-lg border-2 border-red-600 bg-red-50 p-4 shadow";
-        el.innerHTML = `<div class="text-red-700 font-bold mb-1">긴급 경보</div>${head}
-          <p class="mt-2 text-lg">"${esc(r.text)}"</p>${patientInfo(p)}
-          <div class="mt-3"><button data-act="ack" class="bg-red-600 text-white rounded px-4 py-2 font-semibold disabled:opacity-50">확인했습니다</button></div>
-          <div data-err class="text-sm text-red-600 mt-1"></div>`;
-        return el;
+        return `${head}<div class="block"><b>긴급 경보</b><p>환자가 긴급 호출을 요청했어요. 확인 후 바로 환자에게 가 주세요.</p></div>
+          <div class="actions"><button data-act="ack" class="btn btn-primary" style="background:var(--danger);border-color:var(--danger)">확인했습니다</button></div>
+          <div data-err class="err"></div>`;
       }
-
-      el.className = "rounded-lg border bg-white p-4 shadow-sm";
-      el.innerHTML = `${head}
-        <div class="mt-2 text-sm text-slate-500">${esc(r.topic)}</div>
-        <p class="mt-1">"${esc(r.text)}"</p>
-        <p class="mt-1 text-sm text-slate-600">요약: ${esc(r.summary)}</p>
-        <div class="mt-1 flex flex-wrap gap-1">${r.evidence.map((e) => `<span class="text-xs bg-slate-100 rounded px-2 py-0.5">${esc(e)}</span>`).join("")}
-          <span class="text-xs bg-blue-50 text-blue-700 rounded px-2 py-0.5">권고: ${esc(r.suggested_action)}</span></div>
-        ${patientInfo(p)}
-        <label class="block mt-3 text-sm font-medium text-slate-700">AI 초안 (수정 가능)</label>
-        <textarea data-draft rows="3" class="w-full border rounded p-2 mt-1">${esc(r.draft_answer)}</textarea>
-        <div class="mt-2 flex items-center gap-2 text-sm">
-          <label class="flex items-center gap-1"><input data-visit type="checkbox" ${r.suggested_action === "방문 권고" ? "checked" : ""}> 방문 필요</label>
-          <input data-eta type="number" min="1" value="10" class="w-16 border rounded px-2 py-1"> 분 후
+      return `${head}
+        <div class="block"><b>AI 요약</b><p>${esc(r.summary)}</p>
+          <div class="chips">${r.evidence.map((e) => `<span class="chip">${esc(e)}</span>`).join("")}<span class="chip rec">권고: ${esc(r.suggested_action)}</span></div></div>
+        ${r.nurse_guide ? `<div class="block"><b>간호사 참고</b><p>${esc(r.nurse_guide)}</p></div>` : ""}
+        <div class="divider"></div>
+        <div class="review-h"><b>답변 검토</b><span class="small">AI 초안을 수정한 뒤 전송할 수 있어요.</span></div>
+        <textarea data-draft class="draft" rows="4">${esc(r.draft_answer)}</textarea>
+        <div class="visit">
+          <label><input data-visit type="checkbox" ${r.suggested_action === "방문 권고" ? "checked" : ""}>방문 필요</label>
         </div>
-        <div class="mt-3 flex gap-2">
-          <button data-act="approve" class="bg-teal-600 text-white rounded px-4 py-2 disabled:opacity-50">승인</button>
-          <button data-act="edit" class="bg-blue-600 text-white rounded px-4 py-2 disabled:opacity-50">수정 후 전송</button>
-          <button data-act="direct" class="border border-slate-400 rounded px-4 py-2 disabled:opacity-50">직접 방문/연락</button>
+        <div class="actions">
+          <button data-act="send" class="btn btn-primary" style="min-width:180px">답변 전송</button>
         </div>
-        <div data-err class="text-sm text-red-600 mt-1"></div>`;
-      return el;
+        <div data-err class="err"></div>`;
     }
 
-    queueEl.addEventListener("click", async (e) => {
+    const selected = () => items.find((r) => r.id === selId);
+
+    function renderReview() {
+      const r = selected();
+      const j = r ? JSON.stringify(r) : "";
+      if (j === shown) return; // 환자 요청이 그대로면 편집 중인 초안을 지키지 않고 다시 그리지 않는다
+      shown = j;
+      $("#review").innerHTML = r ? reviewEl(r) : `<div class="empty">검토할 요청을 선택해 주세요.</div>`;
+    }
+
+    function renderList() {
+      const q = filter.trim();
+      const vis = items.filter((r) => !q || r.patient.name.includes(q) || r.patient.room.includes(q));
+      queueEl.innerHTML = vis.map(listItem).join("");
+      $("#empty").classList.toggle("hidden", items.length > 0);
+      $("#pick").classList.toggle("hidden", !items.length);
+    }
+
+    $("#q").oninput = (e) => { filter = e.target.value; renderList(); };
+    queueEl.addEventListener("click", (e) => {
+      const b = e.target.closest("[data-pick]");
+      if (!b) return;
+      selId = b.dataset.pick;
+      shown = "";
+      renderList();
+      renderReview();
+    });
+
+    $("#review").addEventListener("click", async (e) => {
       const btn = e.target.closest("[data-act]");
       if (!btn) return;
-      const card = btn.closest("[data-id]");
-      const id = card.dataset.id;
-      const act = btn.dataset.act;
-      const buttons = card.querySelectorAll("button");
+      const r = selected();
+      if (btn.dataset.act === "info") return openPanel(r);
+      const box = $("#review");
+      const buttons = box.querySelectorAll("button");
       buttons.forEach((b) => (b.disabled = true));
-      card.querySelector("[data-err]").textContent = "";
+      box.querySelector("[data-err]").textContent = "";
       try {
-        if (act === "ack") {
-          await api("POST", `/api/nurse/requests/${encodeURIComponent(id)}/ack`, { nurse_name: NURSE });
+        if (btn.dataset.act === "ack") {
+          await api("POST", `/api/nurse/requests/${encodeURIComponent(r.id)}/ack`, { nurse_name: NURSE });
         } else {
-          await api("POST", `/api/nurse/requests/${encodeURIComponent(id)}/respond`, {
-            action: act,
-            text: card.querySelector("[data-draft]").value,
-            visit: {
-              needed: card.querySelector("[data-visit]").checked,
-              eta_min: card.querySelector("[data-visit]").checked ? Number(card.querySelector("[data-eta]").value) || 10 : null,
-            },
+          const text = box.querySelector("[data-draft]").value;
+          const needed = box.querySelector("[data-visit]").checked;
+          await api("POST", `/api/nurse/requests/${encodeURIComponent(r.id)}/respond`, {
+            action: text.trim() === r.draft_answer.trim() ? "approve" : "edit",
+            text,
+            visit: { needed, eta_min: null },
             nurse_name: NURSE,
           });
         }
         await refresh();
       } catch (err) {
-        card.querySelector("[data-err]").textContent = "처리하지 못했어요: " + err.message;
+        box.querySelector("[data-err]").textContent = "처리하지 못했어요: " + err.message;
         buttons.forEach((b) => (b.disabled = false));
       }
     });
 
-    function renderQueue(items) {
-      const ids = new Set(items.map((r) => r.id));
-      for (const [id, c] of cards) if (!ids.has(id)) { c.el.remove(); cards.delete(id); }
-      items.forEach((r, i) => {
-        const j = JSON.stringify(r);
-        let c = cards.get(r.id);
-        if (!c || c.json !== j) {
-          const el = cardEl(r);
-          if (c) c.el.replaceWith(el);
-          c = { json: j, el };
-          cards.set(r.id, c);
-        }
-        if (queueEl.children[i] !== c.el) queueEl.insertBefore(c.el, queueEl.children[i] || null);
-      });
-      $("#empty").classList.toggle("hidden", items.length > 0);
-      $("#count").textContent = items.length ? `대기 ${items.length}건` : "";
+    function renderQueue(next) {
+      items = next;
+      if (!selected()) { selId = items[0]?.id ?? null; shown = ""; }
+      renderList();
+      renderReview();
+      $("#count").textContent = $("#count2").textContent = items.length;
 
       const emergencies = items.filter((r) => r.status === "emergency");
       const alarm = $("#alarm");
@@ -177,11 +263,11 @@
       const j = JSON.stringify(log);
       if (j === lastLog) return;
       lastLog = j;
-      $("#log").innerHTML = log.length ? log.map((l) => `<div class="bg-white border rounded p-3 text-sm">
-          <div class="flex justify-between text-slate-500"><b class="text-slate-700">${esc(l.patient_name)}</b><span>${fmtTime(l.created_at)}</span></div>
-          <div class="mt-1">Q. ${esc(l.text)}</div>
-          <div class="mt-1 text-teal-700">A. ${esc(l.answer)}</div></div>`).join("")
-        : `<div class="text-slate-400 text-sm">아직 없어요</div>`;
+      $("#log").innerHTML = log.length ? log.map((l, i) => `${i ? '<div class="divider"></div>' : ""}<div class="log-item">
+          <div class="row"><span class="who">${esc(l.patient_name)}</span><span class="small">${fmtTime(l.created_at)}</span></div>
+          <div class="q">Q. ${esc(l.text)}</div>
+          <div class="a">A. ${esc(l.answer)}</div></div>`).join("")
+        : `<div class="empty">아직 없어요</div>`;
     }
 
     async function refresh() {
@@ -189,7 +275,32 @@
       renderQueue(d.queue);
       renderLog(d.ai_log);
     }
-    poll(refresh);
+
+    // 백엔드에 간호사 인증이 없어 로그인은 화면 게이트일 뿐 비밀번호를 검증하지 않는다(빈 값도 통과).
+    let polling = false;
+    function enter(name) {
+      NURSE = name;
+      sessionStorage.setItem("neon_nurse", "1");
+      sessionStorage.setItem("neon_nurse_name", name);
+      $("#nurse").textContent = name;
+      $("#v-login").classList.add("hidden");
+      $("#v-main").classList.remove("hidden");
+      if (!polling) { polling = true; poll(refresh); }
+    }
+    $("#login").onsubmit = (e) => {
+      e.preventDefault();
+      const name = $("#l-name").value.trim();
+      if (!name) { $("#l-err").textContent = "이름을 입력해 주세요"; return; }
+      $("#l-err").textContent = "";
+      enter(name);
+    };
+    $("#logout").onclick = () => {
+      sessionStorage.removeItem("neon_nurse");
+      sessionStorage.removeItem("neon_nurse_name");
+      location.reload();
+    };
+    if (sessionStorage.getItem("neon_nurse") && NURSE) enter(NURSE);
+    else { $("#v-login").classList.remove("hidden"); $("#l-name").focus(); }
   </script>
 </body>
 </html>

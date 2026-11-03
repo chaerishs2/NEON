@@ -29,6 +29,7 @@ def queue():
             "draft_answer": r["draft_answer"],
             "suggested_action": r["suggested_action"],
             "evidence": r["evidence"],
+            "nurse_guide": r.get("nurse_guide", ""),
             "created_at": r["created_at"],
             "acknowledged_at": r["acknowledged_at"],
         }

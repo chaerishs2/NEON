@@ -1,12 +1,17 @@
 import json
 import os
+import re
 import tempfile
 import threading
-from datetime import datetime
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+
+KST = timezone(timedelta(hours=9))
+_DATE = re.compile(r"^(\d{4}-\d{2}-\d{2})(T\d{2}:\d{2})?$")
 
 DATA_DIR = Path(__file__).parent / "data"
 PATIENTS_FILE = DATA_DIR / "patients.json"
+META_FILE = DATA_DIR / "patients.meta.json"
 REQUESTS_FILE = DATA_DIR / "requests.json"
 
 lock = threading.RLock()
@@ -32,12 +37,33 @@ def save():
         os.replace(tmp, REQUESTS_FILE)
 
 
+def reset():
+    """서버를 켤 때 이전 내역을 비운다. 파일은 지우지 않고 보관용 이름으로 옮겨 둔다."""
+    with lock:
+        path = Path(REQUESTS_FILE)
+        if path.exists() and (db["requests"] or db["messages"]):
+            os.replace(path, path.with_name(f"{path.stem}.{datetime.now():%Y%m%d-%H%M%S}.json"))
+        db["requests"].clear()
+        db["messages"].clear()
+
+
 def now():
     return datetime.now().astimezone().isoformat(timespec="seconds")
 
 
+def _shift(x, days):
+    if isinstance(x, dict):
+        return {k: _shift(v, days) for k, v in x.items()}
+    if isinstance(x, list):
+        return [_shift(v, days) for v in x]
+    m = _DATE.match(x) if isinstance(x, str) else None
+    return (date.fromisoformat(m[1]) + timedelta(days=days)).isoformat() + (m[2] or "") if m else x
+
+
 def patients():
-    return json.loads(PATIENTS_FILE.read_text(encoding="utf-8"))
+    # shortcut: 날짜를 통째로 오늘 기준으로 평행 이동한다(일정 간격은 유지). 일정이 바뀌어야 하면 build_patients.py로 다시 만든다
+    base = date.fromisoformat(json.loads(META_FILE.read_text(encoding="utf-8"))["base_date"])
+    return _shift(json.loads(PATIENTS_FILE.read_text(encoding="utf-8")), (datetime.now(KST).date() - base).days)
 
 
 def get_patient(pid):
@@ -51,7 +77,7 @@ def get_request(rid):
 def add_request(patient_id, text, input_type):
     with lock:
         req = {
-            "id": f"r_{len(db['requests']) + 1:03d}",
+            "id": f"r_{max((int(r['id'][2:]) for r in db['requests']), default=0) + 1:03d}",
             "patient_id": patient_id,
             "thread_id": f"t_{patient_id}",
             "text": text,
@@ -65,6 +91,7 @@ def add_request(patient_id, text, input_type):
             "suggested_action": None,
             "patient_message": None,
             "evidence": [],
+            "nurse_guide": "",
             "context_snapshot": {},
             "created_at": now(),
             "acknowledged_at": None,
@@ -79,7 +106,7 @@ def add_request(patient_id, text, input_type):
 def add_message(req, sender, text):
     with lock:
         msg = {
-            "id": f"m{len(db['messages']) + 1}",
+            "id": f"m{max((int(m['id'][1:]) for m in db['messages']), default=0) + 1}",
             "thread_id": req["thread_id"],
             "request_id": req["id"],
             "sender": sender,

@@ -3,80 +3,121 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NEON 환자</title>
+  <title>PULSON 환자</title>
   <link rel="icon" href="data:,">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="pulson.css">
 </head>
-<body class="bg-slate-200 flex justify-center">
-  <div class="w-full max-w-md bg-white flex flex-col h-dvh shadow-lg">
-    <header class="bg-teal-600 text-white p-3">
-      <div class="flex items-center justify-between">
-        <span class="font-bold tracking-wide">NEON</span>
-        <select id="patient" class="text-slate-800 rounded px-2 py-1 text-sm"></select>
+<body class="patient-page patient">
+  <div class="app">
+    <div id="conn" class="conn hidden">서버와 연결이 끊겼어요. 다시 연결하는 중…</div>
+
+    <!-- 로그인 -->
+    <section id="v-login" class="view hidden">
+      <header class="p-head brand">PULSON</header>
+      <form id="login" class="p-body">
+        <div class="stack" style="gap:8px">
+          <h1 class="p-title">로그인</h1>
+          <p class="p-sub">이름과 생년월일로 로그인해 주세요.</p>
+        </div>
+        <div class="stack" style="gap:20px">
+          <div class="field"><label for="l-name">환자 이름</label>
+            <input id="l-name" class="pill-input" autocomplete="off" placeholder="이름을 입력해 주세요"></div>
+          <div class="field"><label for="l-birth">생년월일</label>
+            <input id="l-birth" class="pill-input" autocomplete="off" inputmode="numeric" placeholder="YYYY.MM.DD"></div>
+        </div>
+        <div class="stack" style="gap:12px">
+          <button class="btn btn-primary btn-block">로그인</button>
+          <div id="l-err" class="err"></div>
+        </div>
+      </form>
+    </section>
+
+    <!-- 홈 -->
+    <section id="v-home" class="view hidden">
+      <header class="p-head home"><span class="room"></span><span class="pname"></span></header>
+      <div class="p-body">
+        <div class="stack" style="gap:12px">
+          <h1 class="p-title sm">입원 중 궁금한 점이 있나요?</h1>
+          <p class="p-sub">현재 입원·치료 정보를 바탕으로<br>필요한 내용을 안내해 드려요.</p>
+          <button id="ask" class="btn btn-primary btn-block p-cta">궁금한 점 물어보기</button>
+        </div>
+        <div class="divider" style="background:var(--sep)"></div>
+        <button id="logout" class="link-btn" style="align-self:flex-start">다른 환자로 로그인</button>
       </div>
-      <div id="room" class="text-xs text-teal-100 mt-1"></div>
-    </header>
+    </section>
 
-    <div id="conn" class="hidden bg-amber-500 text-white text-center text-sm py-1">서버와 연결이 끊겼어요. 다시 연결하는 중…</div>
-    <div id="status" class="px-3 pt-2 empty:hidden"></div>
-    <div id="visit" class="px-3 pt-2 empty:hidden"></div>
-
-    <main id="chat" class="flex-1 overflow-y-auto p-3 space-y-3 bg-slate-50"></main>
-
-    <div id="err" class="px-3 py-1 text-sm text-red-600 empty:hidden"></div>
-    <form id="form" class="p-3 border-t flex gap-2">
-      <input id="text" autocomplete="off" placeholder="궁금한 점을 말씀해 주세요"
-        class="flex-1 border rounded-full px-4 py-2 text-base focus:outline-none focus:ring-2 focus:ring-teal-500">
-      <button id="mic" type="button" aria-label="음성으로 입력" class="border rounded-full w-11 h-11 flex items-center justify-center text-slate-600">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2Z"/></svg>
-      </button>
-      <button class="bg-teal-600 text-white rounded-full px-5 py-2 font-medium disabled:opacity-40">전송</button>
-    </form>
+    <!-- 채팅 -->
+    <section id="v-chat" class="view hidden">
+      <header class="p-head">
+        <div class="left">
+          <button id="back" class="icon-btn" aria-label="홈으로">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 10H3m6-6-6 6 6 6"/></svg>
+          </button>
+          <span class="room"></span>
+        </div>
+        <span class="pname"></span>
+      </header>
+      <main id="chat" class="chat"></main>
+      <div id="err" class="err composer-err"></div>
+      <form id="form" class="composer">
+        <input id="text" autocomplete="off" placeholder="텍스트를 입력하세요">
+        <button id="mic" type="button" aria-label="음성으로 입력" class="circle ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2Z"/></svg>
+        </button>
+        <button class="circle send" aria-label="전송">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16V4m-6 6 6-6 6 6"/></svg>
+        </button>
+      </form>
+    </section>
   </div>
 
   <script src="common.js"></script>
   <script>
-    const STATUS = {
-      processing: ["AI가 확인하고 있어요…", "bg-slate-100 text-slate-600"],
-      answered_by_ai: ["AI가 답변했어요", "bg-teal-50 text-teal-700"],
-      pending_nurse: ["간호사 확인을 기다리고 있어요", "bg-amber-50 text-amber-700"],
-      responded: ["간호사가 답변했어요", "bg-blue-50 text-blue-700"],
-      handled_directly: ["간호사가 직접 도와드려요", "bg-blue-50 text-blue-700"],
-      emergency: ["긴급 호출됨 · 의료진이 오고 있어요", "bg-red-100 text-red-700 font-semibold animate-pulse"],
-      emergency_acknowledged: ["의료진이 확인했어요", "bg-green-50 text-green-700"],
+    // [배너 색 토큰, 문구]. responded 계열은 방문 여부에 따라 render()에서 결정.
+    const BANNER = {
+      processing: ["muted", "AI가 확인하고 있어요…"],
+      answered_by_ai: ["ok", "AI가 답변했어요"],
+      pending_nurse: ["danger", "간호사 확인을 기다리고 있어요"],
+      emergency: ["danger pulse", "긴급 호출됨 · 의료진이 오고 있어요"],
+      emergency_acknowledged: ["ok", "의료진이 확인했어요"],
     };
-    const SENDER = {
-      patient: ["self-end bg-teal-600 text-white", ""],
-      ai: ["self-start bg-white border text-slate-800", "AI 도우미"],
-      nurse: ["self-start bg-blue-50 border border-blue-200 text-slate-800", "간호사"],
-      system: ["self-center bg-slate-200 text-slate-600 text-sm", ""],
-    };
+    const LABEL = { ai: "AI 도우미", nurse: "간호사" };
 
-    const sel = $("#patient");
     const chat = $("#chat");
-    let pid, lastJson = "";
+    let pid, lastJson = "", patients = [], polling = false;
+
+    function show(view) {
+      for (const v of ["login", "home", "chat"]) $("#v-" + v).classList.toggle("hidden", v !== view);
+      if (view === "chat") chat.scrollTop = chat.scrollHeight;
+    }
+
+    function banner(l) {
+      if (!l) return "";
+      let b = BANNER[l.status];
+      if (l.status === "responded" || l.status === "handled_directly") {
+        if (l.visit.needed) {
+          b = ["warn", "간호사가 방문할 예정이에요" + (l.visit.eta_min ? `<br>약 ${esc(l.visit.eta_min)}분 안에` : "")];
+        } else {
+          b = ["info", l.status === "handled_directly"
+            ? "간호사가 직접 도와드려요"
+            : "간호사가 답변을 완료했어요<br>간호사의 추가 방문이 예정되어 있지 않습니다"];
+        }
+      }
+      return b ? `<div class="banner-wrap"><div class="banner ${b[0]}">${b[1]}</div></div>` : "";
+    }
 
     function render(d) {
-      $("#room").textContent = d.patient.room;
+      document.querySelectorAll(".room").forEach((e) => (e.textContent = d.patient.room));
+      document.querySelectorAll(".pname").forEach((e) => (e.textContent = d.patient.name));
       const near = chat.scrollHeight - chat.scrollTop - chat.clientHeight < 80 || !chat.children.length;
-      chat.innerHTML = d.messages.map((m) => {
-        const [cls, label] = SENDER[m.sender] || SENDER.system;
-        return `<div class="flex flex-col ${m.sender === "patient" ? "items-end" : m.sender === "system" ? "items-center" : "items-start"}">
-          ${label ? `<span class="text-xs text-slate-500 mb-0.5">${label}</span>` : ""}
-          <div class="${cls} max-w-[85%] rounded-2xl px-3 py-2 whitespace-pre-wrap">${esc(m.text)}</div>
-          <span class="text-[11px] text-slate-400 mt-0.5">${fmtTime(m.created_at)}</span></div>`;
-      }).join("");
+      chat.innerHTML = `<div class="msgs">${d.messages.map((m) => {
+        const k = m.sender === "patient" ? "me" : m.sender === "system" ? "sys" : "";
+        const who = LABEL[m.sender];
+        const time = `<time>${fmtTime(m.created_at)}</time>`;
+        const bubble = `<div class="bubble">${esc(m.text)}</div>`;
+        return `<div class="msg ${k}">${k === "me" ? bubble + time : who ? `<span class="who">${who}</span>${bubble}${time}` : bubble}</div>`;
+      }).join("")}</div>${banner(d.latest)}`;
       if (near) chat.scrollTop = chat.scrollHeight;
-
-      const l = d.latest;
-      const st = l && STATUS[l.status];
-      $("#status").innerHTML = st ? `<div class="rounded-lg px-3 py-2 text-sm ${st[1]}">${st[0]}</div>` : "";
-      const showVisit = l && l.visit.needed && (l.status === "responded" || l.status === "handled_directly");
-      $("#visit").innerHTML = showVisit
-        ? `<div class="rounded-lg border-2 border-blue-400 bg-blue-50 px-3 py-3 text-blue-900 text-center">
-             <div class="text-sm">간호사 방문 예정</div>
-             <div class="text-2xl font-bold">${l.visit.eta_min ? `약 ${esc(l.visit.eta_min)}분 안에` : "곧 찾아와요"}</div></div>`
-        : "";
     }
 
     async function refresh() {
@@ -90,6 +131,34 @@
     }
     const pollMs = () => (lastJson.includes('"status":"processing"') ? 700 : 2000);
 
+    function enter(id) {
+      pid = id;
+      lastJson = "";
+      chat.innerHTML = "";
+      const p = patients.find((x) => x.id === id);
+      document.querySelectorAll(".room").forEach((e) => (e.textContent = p.room));
+      document.querySelectorAll(".pname").forEach((e) => (e.textContent = p.name));
+      show("home");
+      if (!polling) { polling = true; poll(refresh, pollMs); } else refresh();
+    }
+
+    // 백엔드에 생년월일/로그인 API가 없어(개인정보 미보관) 이름으로만 환자를 찾는다.
+    $("#login").onsubmit = (e) => {
+      e.preventDefault();
+      const name = $("#l-name").value.trim();
+      const p = patients.find((x) => x.name === name);
+      if (!p) { $("#l-err").textContent = name ? "일치하는 환자 정보를 찾을 수 없어요" : "이름을 입력해 주세요"; return; }
+      $("#l-err").textContent = "";
+      enter(p.id);
+    };
+    $("#ask").onclick = () => show("chat");
+    $("#back").onclick = () => show("home");
+    $("#logout").onclick = () => {
+      pid = null;
+      $("#l-name").value = $("#l-birth").value = "";
+      show("login");
+    };
+
     let voice = false;
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (!SR) {
@@ -102,9 +171,8 @@
       const mic = $("#mic");
       const setListening = (on) => {
         listening = on;
-        mic.classList.toggle("bg-red-500", on);
-        mic.classList.toggle("text-white", on);
-        mic.classList.toggle("animate-pulse", on);
+        mic.classList.toggle("rec", on);
+        mic.classList.toggle("pulse", on);
       };
       rec.onstart = () => setListening(true);
       rec.onend = () => setListening(false);
@@ -149,20 +217,13 @@
       refresh();
     };
 
+    show("login"); // 앱을 열면 항상 첫 화면(로그인)부터 시작한다
     (async () => {
-      const ps = await api("GET", "/api/patients");
-      sel.innerHTML = ps.map((p) => `<option value="${esc(p.id)}">${esc(p.name)}</option>`).join("");
-      pid = localStorage.getItem("neon_pid");
-      if (!ps.some((p) => p.id === pid)) pid = ps[0].id;
-      sel.value = pid;
-      sel.onchange = () => {
-        pid = sel.value;
-        localStorage.setItem("neon_pid", pid);
-        lastJson = "";
-        chat.innerHTML = "";
-        refresh();
-      };
-      poll(refresh, pollMs);
+      try {
+        patients = await api("GET", "/api/patients");
+      } catch (e) {
+        $("#conn").classList.remove("hidden");
+      }
     })();
   </script>
 </body>

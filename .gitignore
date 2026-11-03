@@ -1,4 +1,5 @@
 .env
-data/requests.json
+data/requests*.json
+healthcare/
 __pycache__/
 .venv/

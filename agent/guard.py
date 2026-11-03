@@ -9,6 +9,7 @@ SYMPTOM_WORDS = [
     "구토", "메스꺼", "저려", "가려", "출혈", "숨", "떨려",
 ]
 NURSE_NOTICE = "간호사에게 전달했어요. 곧 확인할게요."
+EMPTY_DRAFT = "간호사가 확인한 뒤 안내해 드리겠습니다."
 LEAKED_LABEL = "환자에게 바로 보여줄 문구:"  # 모델이 JSON 필드 설명을 값에 섞어 내는 경우
 
 
@@ -56,4 +57,5 @@ def check(raw, text):
         out.update(category="needs_nurse", severity=max(out["severity"], 2), suggested_action="간호사 확인")
     if out["category"] == "needs_nurse":
         out["patient_message"] = NURSE_NOTICE  # 환자에게 바로 가는 문구는 모델이 아니라 고정 문구로
+        out["draft_answer"] = out["draft_answer"] or EMPTY_DRAFT  # 승인 시 환자에게 빈 메시지가 가지 않게
     return out
